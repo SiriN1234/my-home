@@ -3,7 +3,6 @@
 # 그 뒤의 값이 블록ID 
 
 from flask import Flask, request
-from home_list import hl
 import json
  
 app = Flask(__name__)
