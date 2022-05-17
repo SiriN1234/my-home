@@ -47,9 +47,9 @@ def cardTest():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "2022년 특화형 전세임대 청년 기숙사형(경희대) 입주자 정기모집 공고\n공급유형 : 전세임대\n모집공고 : 2022-05-10",
+                        "description": "2022년 특화형 전세임대 청년 기숙사형(경희대) 입주자 정기모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-10",
                         "thumbnail": {
-                            "imageUrl": "hhttps://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
                         "buttons": [
                             {
@@ -60,40 +60,41 @@ def cardTest():
                         ]
                     },
                     {
-                        "title": "보물상자2",
-                        "description": "보물상자2 안에는 뭐가 있을까",
+                        "description": "『도봉구 신혼부부 맞춤형 공공임대주택 (공동체주택)』입주자 추가모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-06",
                         "thumbnail": {
-                            "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
                         "buttons": [
                             {
-                                "action": "message",
-                                "label": "열어보기",
-                                "messageText": "짜잔! 우리가 찾던 보물입니다"
-                            },
-                            {
                                 "action":  "webLink",
-                                "label": "구경하기",
-                                "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11291"
                             }
                         ]
                     },
                     {
-                        "title": "보물상자3",
-                        "description": "보물상자3 안에는 뭐가 있을까",
+                        "description": "은평구 청년 창업인의 집 1호점 및 2호점 (수요자맞춤형 주택) 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-04",
                         "thumbnail": {
-                            "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
                         "buttons": [
                             {
-                                "action": "message",
-                                "label": "열어보기",
-                                "messageText": "짜잔! 우리가 찾던 보물입니다"
-                            },
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11290"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
                             {
                                 "action":  "webLink",
-                                "label": "구경하기",
-                                "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
                             }
                         ]
                     }
