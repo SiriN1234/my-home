@@ -1306,3 +1306,341 @@ def ulsan():
     }
 
     return responseBody
+
+
+
+
+# 대구 임대주택 목록
+@app.route('/api/daegu', methods=['POST'])
+def daegu():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "대구금호(1,5,8단지) 및 대구남산 국민임대주택 예비입주자 모집공고\n공급유형 : 국민임대\n공고일자 : 2022-05-16",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11384"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "대구도시공사 수성알파시티 행복주택 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-16",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11353"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "대구북부권주거복지지사 기존주택 등 매입임대주택 입주자 모집\n공급유형 : 매입임대\n공고일자 : 2022-05-13",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11350"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "대구대곡 천년나무 행복주택 입주자 모집공고\n공급유형 : 행복주택\n공고일자 : 2022-05-11",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11344"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[경북 경산, 대구 동구_수성구] 신혼(혼인)부부매입임대주택II(전세형) 입주자격완화 추가 모집공고\n공급유형 : 매입임대\n공고일자 : 2022-05-06",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11295"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022년 신혼부부 전세임대Ⅰ입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11206"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[정정공고]2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11205"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[정정공고][정정공고][전국] 자립준비청년(보호종료아동) 매입임대 입주자 수시모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-01-14",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10955"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+
+# 광주 임대주택 목록
+@app.route('/api/gwangju', methods=['POST'])
+def gwangju():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "광주송화3 국민임대주택 입주자격완화 예비입주자 모집(2022.05.17)\n공급유형 : 국민임대\n공고일자 : 2022-05-17",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "광주광역시 국민임대주택 예비입주자 모집(2022.05.16)\n공급유형 : 국민임대\n공고일자 : 2022-05-16",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "광주도산 행복주택 추가 입주자 모집(2022.05.09)\n공급유형 : 행복주택\n공고일자 : 2022-05-09",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "광주광역시 광산구 신축다세대 임대주택 입주자 모집[자격완화 , 전세형]\n공급유형 : 10년임대\n공고일자 : 2022-05-04",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[정정공고][광주전남지역본부] 공공전세 1차 입주자 모집공고\n공급유형 : 매입임대\n공고일자 : 2022-04-28",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[광주전남지역본부] 공공전세 1차 입주자 모집공고\n공급유형 : 매입임대\n공고일자 : 2022-04-28",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[정정공고][광주광역시 광산구] 기존주택 등 매입임대주택 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-26",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[광주광역시 광산구] 기존주택 등 매입임대주택 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-26",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
