@@ -1,3 +1,6 @@
+from flask import Flask, request
+import json
+
 # 서울시 임대주택 목록
 @app.route('/api/cardTest', methods=['POST'])
 def cardTest():
