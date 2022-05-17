@@ -3,6 +3,7 @@
 # 그 뒤의 값이 블록ID 
 
 from flask import Flask, request
+from home_list import hl
 import json
  
 app = Flask(__name__)
@@ -119,90 +120,3 @@ def cardTest():
     return responseBody
 
 
-# 경기도 임대주택 목록
-@app.route('/api/gyeonggiDo', methods=['POST'])
-def gyeonggiDo():
-    body = request.get_json() # 사용자가 입력한 데이터
-    print(body)
-    print(body['userRequest']['utterance'])
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
-                "type": "basicCard",
-                "items": [
-                    {
-                        "description": "[정정공고]화성시 지역 행복주택 입주자격완화 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-13",
-                        "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11426"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "화성시 지역 행복주택 입주자격완화 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-13",
-                        "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11351"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "파주운정3 A34블록 영구임대주택 추가 및 예비입주자모집공고(22.05.13)\n공급유형 : 영구임대\n공고일자 : 2022-05-13",
-                        "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11349"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "2화성봉담2 A-2블록 신혼희망타운 행복주택 입주자격완화 추가모집\n공급유형 : 행복주택\n공고일자 : 2022-05-12",
-                        "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11346"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-        ],
-        "quickReplies": [
-        {
-            "label": "지역 목록으로 돌아가기",
-            "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
-            "label": "메인으로 돌아가기",
-            "action": "block",
-            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
