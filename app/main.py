@@ -31,7 +31,7 @@ def test():
     return responseBody
 
 
-# 카카오톡 카드 테스트
+# 카카오톡 케로셀 카드 테스트
 @app.route('/api/cardTest', methods=['POST'])
 def cardTest():
     body = request.get_json() # 사용자가 입력한 데이터
@@ -100,6 +100,13 @@ def cardTest():
                     }
                 ]
             }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "인기 메뉴",
+            "action": "block",
+            "blockId": "메인 텍스트 출력"
         }
         ]
         }
