@@ -1,6 +1,8 @@
 from flask import Flask, request
 import json
 
+app = Flask(__name__)
+
 # 서울시 임대주택 목록
 @app.route('/api/cardTest', methods=['POST'])
 def cardTest():
