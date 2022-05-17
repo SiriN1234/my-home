@@ -104,9 +104,9 @@ def cardTest():
         ],
         "quickReplies": [
         {
-            "label": "인기 메뉴",
+            "label": "메인으로 돌아가기",
             "action": "block",
-            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+            "blockId": "627b293404a7d7314aeb7b0d"
         }
         ]
         }
