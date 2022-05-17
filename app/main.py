@@ -47,21 +47,15 @@ def cardTest():
                 "type": "basicCard",
                 "items": [
                     {
-                        "title": "보물상자",
-                        "description": "보물상자 안에는 뭐가 있을까",
+                        "description": "2022년 특화형 전세임대 청년 기숙사형(경희대) 입주자 정기모집 공고\n공급유형 : 전세임대\n모집공고 : 2022-05-10",
                         "thumbnail": {
-                            "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+                            "imageUrl": "hhttps://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
                         "buttons": [
                             {
-                                "action": "message",
-                                "label": "열어보기",
-                                "messageText": "짜잔! 우리가 찾던 보물입니다"
-                            },
-                            {
                                 "action":  "webLink",
-                                "label": "구경하기",
-                                "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335"
                             }
                         ]
                     },
