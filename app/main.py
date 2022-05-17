@@ -106,7 +106,7 @@ def cardTest():
         {
             "label": "인기 메뉴",
             "action": "block",
-            "blockId": "메인 텍스트 출력"
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
         ]
         }
