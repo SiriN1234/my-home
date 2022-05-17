@@ -118,5 +118,3 @@ def cardTest():
     }
 
     return responseBody
-
-

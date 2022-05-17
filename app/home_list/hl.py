@@ -4,8 +4,8 @@ import json
 app = Flask(__name__)
 
 # 서울시 임대주택 목록
-@app.route('/api/cardTest', methods=['POST'])
-def cardTest():
+@app.route('/api/seoul', methods=['POST'])
+def seoul():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
