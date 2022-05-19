@@ -1,3 +1,3 @@
 def pt() :
     a = "abcde"
-    print(a)
+    return a
