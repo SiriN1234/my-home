@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 
-import test_text as tt
+from app import test_text as tt
 
 
 app = Flask(__name__)
