@@ -36,7 +36,7 @@ def test1() :
 
 # test1
 @app.route('/api/test1', methods=['POST'])
-def test():
+def test1():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
