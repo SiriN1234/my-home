@@ -1,10 +1,5 @@
 from flask import Flask, request
 import json
- 
-
-def test_text() :
-    a = "test1"
-    return a
 
 
 app = Flask(__name__)
@@ -38,6 +33,11 @@ def test():
 
 
 # test1
+
+def test_text() :
+    a = "test1"
+    return a
+
 @app.route('/api/test1', methods=['POST'])
 def test1():
     body = request.get_json() # 사용자가 입력한 데이터
