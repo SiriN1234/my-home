@@ -35,7 +35,7 @@ address_test = ['/api/test1', '/api/test2']
 text_test = ['test1', 'test2']
 
 # 테스트
-for i in 2 :
+for i in range(2) :
     @app.route(address_test[i], methods=['POST'])
     def test():
         body = request.get_json() # 사용자가 입력한 데이터
