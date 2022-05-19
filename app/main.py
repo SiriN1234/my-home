@@ -30,14 +30,14 @@ def test():
 
     return responseBody
 
-text_test = "test1"
-
 # 카카오톡 텍스트형 응답
 @app.route('/api/test1', methods=['POST'])
 def test():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
+    
+    text_test = "test1"
 
     responseBody = {
         "version": "2.0",
