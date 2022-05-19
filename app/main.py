@@ -1,6 +1,12 @@
 from flask import Flask, request
 import json
  
+
+def test1() :
+    a = "test1"
+    return a
+
+
 app = Flask(__name__)
  
 @app.route('/')
@@ -29,10 +35,6 @@ def test():
     }
 
     return responseBody
-
-def test1() :
-    a = "test1"
-    return a
 
 # test1
 @app.route('/api/test1', methods=['POST'])
