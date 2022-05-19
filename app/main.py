@@ -1698,3 +1698,1353 @@ def gwangju():
     }
 
     return responseBody
+
+
+
+# 강원도 임대주택 목록
+@app.route('/api/gangwonDo', methods=['POST'])
+def gangwonDo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+# 충청남도 임대주택 목록
+@app.route('/api/chungcheongNamdo', methods=['POST'])
+def chungcheongNamdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+# 충청북도 임대주택 목록
+@app.route('/api/chungcheongBukdo', methods=['POST'])
+def chungcheongBukdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+
+# 경상남도 임대주택 목록
+@app.route('/api/gyeongsangNamdo', methods=['POST'])
+def gyeongsangNamdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+
+
+# 경상북도 임대주택 목록
+@app.route('/api/gyeongsangBukdo', methods=['POST'])
+def gyeongsangBukdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+# 전라남도 임대주택 목록
+@app.route('/api/jeollaNamdo', methods=['POST'])
+def jeollaNamdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+
+
+# 전라북도 임대주택 목록
+@app.route('/api/jeollaBukdo', methods=['POST'])
+def jeollaBukdo():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
+
+
+
+
+# 제주특별자치도 임대주택 목록
+@app.route('/api/jeju', methods=['POST'])
+def jeju():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+        "outputs": [
+            {
+                "carousel": {
+                "type": "basicCard",
+                "items": [
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "내용",
+                        "thumbnail": {
+                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        ],
+        "quickReplies": [
+        {
+            "label": "지역 목록으로 돌아가기",
+            "action": "block",
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        },
+        {
+            "label": "메인으로 돌아가기",
+            "action": "block",
+            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
+        }
+        ]
+        }
+    }
+
+    return responseBody
