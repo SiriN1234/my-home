@@ -90,7 +90,6 @@ i_url = ["https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.
 w_url = ["https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11291", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11290", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"]
 
 
-
 # for문 테스트
 @app.route('/api/forTest', methods=['POST'])
 def forTest():
@@ -103,29 +102,26 @@ def forTest():
         "template": {
         "outputs": [
             {
-                "carousel": {
+                "carousel": [
                 "type": "basicCard",
-                "items": [
-                    
-                    for i in range(4) :
-                        {
-                            "description": d_text[i],
-                            "thumbnail": {
-                                "imageUrl": i_url[i]
-                            },
-                            "buttons": [
-                                {
-                                    "action":  "webLink",
-                                    "label": "자세히 보기",
-                                    "webLinkUrl": w_url[i]
-                                }
-                            ]
-                        }
-                    
-                
+                "items": {
+                    for i in range(4) : 
+                    {
+                        "description": d_text[i],
+                        "thumbnail": {
+                            "imageUrl": i_url[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": w_url[i]
+                            }
+                        ]
+                    },    
+                }
                 ]
             }
-        }
         ],
         "quickReplies": [
         {
