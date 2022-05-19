@@ -107,20 +107,21 @@ def forTest():
                 "type": "basicCard",
                 "items": [
                     
-                    for i in range(5) :
-                    {
-                        "description": d_text[i],
-                        "thumbnail": {
-                            "imageUrl": i_url[i]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": w_url[i]
-                            }
-                        ]
-                    }
+                    for i in range(4) :
+                        {
+                            "description": d_text[i],
+                            "thumbnail": {
+                                "imageUrl": i_url[i]
+                            },
+                            "buttons": [
+                                {
+                                    "action":  "webLink",
+                                    "label": "자세히 보기",
+                                    "webLinkUrl": w_url[i]
+                                }
+                            ]
+                        }
+                    
                 
                 ]
             }
