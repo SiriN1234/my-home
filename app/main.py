@@ -31,32 +31,6 @@ def test():
     return responseBody
 
 
-address_test = ['/api/test1', '/api/test2']
-text_test = ['test1', 'test2']
-
-# 테스트
-for i in range(2) :
-    @app.route(address_test[i], methods=['POST'])
-    def test():
-        body = request.get_json() # 사용자가 입력한 데이터
-        print(body)
-        print(body['userRequest']['utterance'])
-
-        responseBody = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "simpleText": {
-                            "text": text_test[i]
-                        }
-                    }
-                ]
-            }
-        }
-
-        return responseBody
-
 
 
 # description : 카드에 들어갈 텍스트
