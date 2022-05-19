@@ -116,9 +116,9 @@ def test3():
             },
             "buttons": [
             {
-                "action": "message",
+                "action": "block",
                 "label": "열어보기",
-                "messageText": "짜잔! 우리가 찾던 보물입니다"
+                "blockId": "6285ee1475eca02fba63ce07?scenarioId=627b131e9ac8ed7844165d72"
             },
             {
                 "action":  "webLink",
