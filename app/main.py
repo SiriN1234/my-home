@@ -32,7 +32,7 @@ def test():
 
 def test1() :
     a = "test1"
-    print(a)
+    return a
 
 # test1
 @app.route('/api/test1', methods=['POST'])
@@ -47,7 +47,7 @@ def test1():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": test1()
+                        "text": print(test1())
                     }
                 }
             ]
