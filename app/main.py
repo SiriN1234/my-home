@@ -36,26 +36,26 @@ text_test = ['test1', 'test2']
 
 # 테스트
 for i in 2 :
-@app.route(address_test[i], methods=['POST'])
-def test():
-    body = request.get_json() # 사용자가 입력한 데이터
-    print(body)
-    print(body['userRequest']['utterance'])
+    @app.route(address_test[i], methods=['POST'])
+    def test():
+        body = request.get_json() # 사용자가 입력한 데이터
+        print(body)
+        print(body['userRequest']['utterance'])
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": text_test[i]
+        responseBody = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "simpleText": {
+                            "text": text_test[i]
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
-    }
 
-    return responseBody
+        return responseBody
 
 
 
