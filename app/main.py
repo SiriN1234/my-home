@@ -1717,7 +1717,7 @@ def gangwonDo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "강원도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -1885,7 +1885,7 @@ def chungcheongNamdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "충청남도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2053,7 +2053,7 @@ def chungcheongBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "충청북도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2222,7 +2222,7 @@ def gyeongsangNamdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "경상남도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2392,7 +2392,7 @@ def gyeongsangBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "경상북도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2560,7 +2560,7 @@ def jeollaNamdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "전라남도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2730,7 +2730,7 @@ def jeollaBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "전라북도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2899,7 +2899,7 @@ def jeju():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "내용",
+                        "description": "제주특별자치도 내용",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
