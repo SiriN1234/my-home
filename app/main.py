@@ -85,59 +85,6 @@ def test2():
     return responseBody
 
 
-d_text = ["abc", "def", "ghi", "jkl"]
-i_url = ["https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg", "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg", "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG", "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"]
-w_url = ["https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11291", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11290", "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"]
-
-
-# for문 테스트
-@app.route('/api/forTest', methods=['POST'])
-def forTest():
-    body = request.get_json() # 사용자가 입력한 데이터
-    print(body)
-    print(body['userRequest']['utterance'])
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": [
-                "type": "basicCard",
-                "items": {
-                    for i in range(4) : 
-                    {
-                        "description": d_text[i],
-                        "thumbnail": {
-                            "imageUrl": i_url[i]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": w_url[i]
-                            }
-                        ]
-                    },    
-                }
-                ]
-            }
-        ],
-        "quickReplies": [
-        {
-            "label": "메인으로 돌아가기",
-            "action": "block",
-            "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
-
 
 # description : 카드에 들어갈 텍스트
 # thumbnail(필수) : 카드에 들어갈 이미지
