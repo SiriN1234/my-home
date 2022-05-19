@@ -1,6 +1,8 @@
 from flask import Flask, request
 import json
 
+import test_text as tt
+
 
 app = Flask(__name__)
  
@@ -51,6 +53,28 @@ def test1():
                 {
                     "simpleText": {
                         "text": test_text()
+                    }
+                }
+            ]
+        }
+    }
+
+    return responseBody
+
+# 다른 파일에서 값 가져오기 테스트
+@app.route('/api/test2', methods=['POST'])
+def test2():
+    body = request.get_json() # 사용자가 입력한 데이터
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": tt.pt()
                     }
                 }
             ]
