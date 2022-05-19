@@ -30,14 +30,16 @@ def test():
 
     return responseBody
 
-# 카카오톡 텍스트형 응답
+def test1() :
+    a = "test1"
+    return a
+
+# test1
 @app.route('/api/test1', methods=['POST'])
 def test():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
-    
-    text_test = "test1"
 
     responseBody = {
         "version": "2.0",
@@ -45,7 +47,7 @@ def test():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": text_test
+                        "text": test1()
                     }
                 }
             ]
