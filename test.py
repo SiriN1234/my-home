@@ -1,5 +1,5 @@
 def test1() :
     a = "test1"
-    return a
+    print(a)
 
-print(type(test1()))
+test1()
