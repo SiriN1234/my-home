@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
  
 
-def test1() :
+def test_text() :
     a = "test1"
     return a
 
@@ -36,6 +36,7 @@ def test():
 
     return responseBody
 
+
 # test1
 @app.route('/api/test1', methods=['POST'])
 def test1():
@@ -49,7 +50,7 @@ def test1():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": test1()
+                        "text": test_text()
                     }
                 }
             ]
