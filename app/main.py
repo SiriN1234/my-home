@@ -92,8 +92,8 @@ w_url = ["https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.d
 
 
 # for문 테스트
-@app.route('/api/cardTest', methods=['POST'])
-def cardTest():
+@app.route('/api/forTest', methods=['POST'])
+def forTest():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
