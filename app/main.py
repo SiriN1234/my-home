@@ -1,5 +1,7 @@
 from flask import Flask, request
 import json
+import pandas as pd
+import csv
 
 from app import test_text as tt
 
@@ -139,21 +141,6 @@ def test3():
 
 
 
-# description : 카드에 들어갈 텍스트
-# thumbnail(필수) : 카드에 들어갈 이미지
-# buttons : 카드 밑에 들어가는 버튼
-## action : message 또는 webLink
-## label : 버튼에 들어가는 텍스트
-## webLinkUrl : 버튼 누르면 연결되는 웹페이지 주소
-
-# quickReplies : 바로 연결 버튼
-## action : message 또는 block
-## blockId : action이 block일 때 넣는 값
-
-# 블록ID 보는 방법
-# 오픈빌더에서 해당 블록에 들어간 후 주소를 보면 중간에 /intent/가 있음
-# 그 뒤의 값이 블록ID
-
 
 # 카카오톡 케로셀 카드 테스트
 @app.route('/api/cardTest', methods=['POST'])
@@ -244,6 +231,23 @@ def cardTest():
 
 
 
+###################################################################
+# description : 카드에 들어갈 텍스트
+# thumbnail(필수) : 카드에 들어갈 이미지
+# buttons : 카드 밑에 들어가는 버튼
+## action : message 또는 webLink
+## label : 버튼에 들어가는 텍스트
+## webLinkUrl : 버튼 누르면 연결되는 웹페이지 주소
+
+# quickReplies : 바로 연결 버튼
+## action : message 또는 block
+## blockId : action이 block일 때 넣는 값
+
+# 블록ID 보는 방법
+# 오픈빌더에서 해당 블록에 들어간 후 주소를 보면 중간에 /intent/가 있음
+# 그 뒤의 값이 블록ID
+###################################################################
+
 
 
 
@@ -257,6 +261,11 @@ def seoul():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
+    
+    
+    # csv파일 불러오기
+    seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+    seoul_url = pd.read_csv("./data/Seoul_url.csv")
 
     responseBody = {
         "version": "2.0",
@@ -267,7 +276,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "2022년 특화형 전세임대 청년 기숙사형(경희대) 입주자 정기모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-10",
+                        "description": seoul_notice.iloc[0]['name'] + "\n공급유형 : " + seoul_notice.iloc[0]['title'] + "\n공고일자 : " + seoul_notice.iloc[0]['re_date'],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -275,7 +284,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335"
+                                "webLinkUrl": seoul_url.iloc[0]['url']
                             }
                         ]
                     },
