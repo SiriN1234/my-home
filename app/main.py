@@ -168,10 +168,10 @@ def cardTest():
                         },
                         "buttons": [
                             {
-                                "action":  "webLink",
+                                "action":  "Link",
                                 "label": "자세히 보기",
                                 "pcUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335",
-                                "mobileUrl" : "https://www.naver.com"
+                                "moUrl" : "https://www.naver.com"
                             }
                         ]
                     },
