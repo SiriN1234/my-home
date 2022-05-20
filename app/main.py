@@ -277,7 +277,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": seoul_notice.iloc[0]['name'] + "\n공급유형 : " + seoul_notice.iloc[0]['title'] + "\n공고일자 : " + seoul_notice.iloc[0]['re_date'],
+                        "description": (seoul_notice.iloc[0]['name'] + "\n공급유형 : " + seoul_notice.iloc[0]['title'] + "\n공고일자 : " + seoul_notice.iloc[0]['re_date']),
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
