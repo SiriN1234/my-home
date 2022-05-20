@@ -276,7 +276,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": s_description,
+                        "description": "abc",
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
