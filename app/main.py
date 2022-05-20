@@ -7,8 +7,8 @@ from app import test_text as tt
 import pandas as pd
 import csv
 
-seoul_url = pd.read_csv("./data/Seoul_url.csv")
-seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+seoul_url = pd.read_csv("./my-home-alarm2/app/data/Seoul_url.csv")
+seoul_notice = pd.read_csv("./my-home-alarm2/app/data/Seoul_notice.csv")
 
 seoul_url_arr = []
 seoul_notice_arr = []
