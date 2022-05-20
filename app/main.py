@@ -1516,6 +1516,21 @@ def daegu():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    daegu_notice = pd.read_csv("./app/data/Daegu_notice.csv")
+    daegu_url = pd.read_csv("./app/data/Daegu_url.csv")
+
+    # 값을 넣을 배열 선언
+    daegu_notice_arr = [] # description에 들어갈 값
+    daegu_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        daegu_url_arr.append(daegu_url.iloc[i]['url'])
+        daegu_notice_arr.append(daegu_notice.iloc[i]['name'] + "\n공급유형 : " + daegu_notice.iloc[i]['title'] + "\n공고일자 : " + daegu_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -1525,7 +1540,7 @@ def daegu():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "대구금호(1,5,8단지) 및 대구남산 국민임대주택 예비입주자 모집공고\n공급유형 : 국민임대\n공고일자 : 2022-05-16",
+                        "description": daegu_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -1533,12 +1548,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11384"
+                                "webLinkUrl": daegu_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "대구도시공사 수성알파시티 행복주택 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-16",
+                        "description": daegu_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -1546,12 +1561,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11353"
+                                "webLinkUrl": daegu_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "대구북부권주거복지지사 기존주택 등 매입임대주택 입주자 모집\n공급유형 : 매입임대\n공고일자 : 2022-05-13",
+                        "description": daegu_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -1559,12 +1574,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11350"
+                                "webLinkUrl": daegu_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "대구대곡 천년나무 행복주택 입주자 모집공고\n공급유형 : 행복주택\n공고일자 : 2022-05-11",
+                        "description": daegu_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -1572,12 +1587,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11344"
+                                "webLinkUrl": daegu_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "[경북 경산, 대구 동구_수성구] 신혼(혼인)부부매입임대주택II(전세형) 입주자격완화 추가 모집공고\n공급유형 : 매입임대\n공고일자 : 2022-05-06",
+                        "description": daegu_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -1585,12 +1600,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11295"
+                                "webLinkUrl": daegu_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "description": daegu_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -1598,12 +1613,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": daegu_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": daegu_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -1611,12 +1626,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": daegu_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅰ입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": daegu_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -1624,12 +1639,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11206"
+                                "webLinkUrl": daegu_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": daegu_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -1637,12 +1652,12 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11205"
+                                "webLinkUrl": daegu_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고][정정공고][전국] 자립준비청년(보호종료아동) 매입임대 입주자 수시모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-01-14",
+                        "description": daegu_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -1650,7 +1665,7 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10955"
+                                "webLinkUrl": daegu_url_arr[9]
                             }
                         ]
                     }
@@ -1853,6 +1868,21 @@ def gangwonDo():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    gangwon_notice = pd.read_csv("./app/data/Gangwon_notice.csv")
+    gangwon_url = pd.read_csv("./app/data/Gangwon_url.csv")
+
+    # 값을 넣을 배열 선언
+    gangwon_notice_arr = [] # description에 들어갈 값
+    gangwon_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        gangwon_url_arr.append(gangwon_url.iloc[i]['url'])
+        gangwon_notice_arr.append(gangwon_notice.iloc[i]['name'] + "\n공급유형 : " + gangwon_notice.iloc[i]['title'] + "\n공고일자 : " + gangwon_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -1862,7 +1892,7 @@ def gangwonDo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "강원도 내용",
+                        "description": gangwon_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -1870,12 +1900,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                                "webLinkUrl": gangwon_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -1883,12 +1913,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                                "webLinkUrl": gangwon_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -1896,12 +1926,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                                "webLinkUrl": gangwon_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -1909,12 +1939,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                                "webLinkUrl": gangwon_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -1922,12 +1952,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": gangwon_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -1935,12 +1965,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                                "webLinkUrl": gangwon_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -1948,12 +1978,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                                "webLinkUrl": gangwon_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -1961,12 +1991,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                                "webLinkUrl": gangwon_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -1974,12 +2004,12 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                                "webLinkUrl": gangwon_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gangwon_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -1987,7 +2017,7 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": gangwon_url_arr[9]
                             }
                         ]
                     }
@@ -2020,6 +2050,21 @@ def chungcheongNamdo():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
+    
+    ###########################################################
+    # csv 파일 불러오기
+    chungnam_notice = pd.read_csv("./app/data/Chungnam_notice.csv")
+    chungnam_url = pd.read_csv("./app/data/Chungnam_url.csv")
+
+    # 값을 넣을 배열 선언
+    chungnam_notice_arr = [] # description에 들어갈 값
+    chungnam_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        chungnam_url_arr.append(chungnam_url.iloc[i]['url'])
+        chungnam_notice_arr.append(chungnam_notice.iloc[i]['name'] + "\n공급유형 : " + chungnam_notice.iloc[i]['title'] + "\n공고일자 : " + chungnam_notice.iloc[i]['re_date'])
+    ###########################################################
 
     responseBody = {
         "version": "2.0",
@@ -2030,7 +2075,7 @@ def chungcheongNamdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "충청남도 내용",
+                        "description": chungnam_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2038,12 +2083,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                                "webLinkUrl": chungnam_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -2051,12 +2096,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                                "webLinkUrl": chungnam_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -2064,12 +2109,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                                "webLinkUrl": chungnam_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -2077,12 +2122,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                                "webLinkUrl": chungnam_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -2090,12 +2135,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": chungnam_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -2103,12 +2148,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                                "webLinkUrl": chungnam_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -2116,12 +2161,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                                "webLinkUrl": chungnam_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -2129,12 +2174,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                                "webLinkUrl": chungnam_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -2142,12 +2187,12 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                                "webLinkUrl": chungnam_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungnam_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -2155,7 +2200,7 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": chungnam_url_arr[9]
                             }
                         ]
                     }
@@ -2189,6 +2234,21 @@ def chungcheongBukdo():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    chungbuk_notice = pd.read_csv("./app/data/Chungbuk_notice.csv")
+    chungbuk_url = pd.read_csv("./app/data/Chungbuk_url.csv")
+
+    # 값을 넣을 배열 선언
+    chungbuk_notice_arr = [] # description에 들어갈 값
+    chungbuk_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        chungbuk_url_arr.append(chungbuk_url.iloc[i]['url'])
+        chungbuk_notice_arr.append(chungbuk_notice.iloc[i]['name'] + "\n공급유형 : " + chungbuk_notice.iloc[i]['title'] + "\n공고일자 : " + chungbuk_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -2198,7 +2258,7 @@ def chungcheongBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "충청북도 내용",
+                        "description": chungbuk_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2206,12 +2266,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                                "webLinkUrl": chungbuk_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -2219,12 +2279,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                                "webLinkUrl": chungbuk_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -2232,12 +2292,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                                "webLinkUrl": chungbuk_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -2245,12 +2305,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                                "webLinkUrl": chungbuk_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -2258,12 +2318,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": chungbuk_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -2271,12 +2331,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                                "webLinkUrl": chungbuk_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -2284,12 +2344,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                                "webLinkUrl": chungbuk_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -2297,12 +2357,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                                "webLinkUrl": chungbuk_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -2310,12 +2370,12 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                                "webLinkUrl": chungbuk_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": chungbuk_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -2323,7 +2383,7 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": chungbuk_url_arr[9]
                             }
                         ]
                     }
@@ -2528,6 +2588,21 @@ def gyeongsangBukdo():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    gyeongbuk_notice = pd.read_csv("./app/data/Gyeongbuk_notice.csv")
+    gyeongbuk_url = pd.read_csv("./app/data/Gyeongbuk_url.csv")
+
+    # 값을 넣을 배열 선언
+    gyeongbuk_notice_arr = [] # description에 들어갈 값
+    gyeongbuk_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        gyeongbuk_url_arr.append(gyeongbuk_url.iloc[i]['url'])
+        gyeongbuk_notice_arr.append(gyeongbuk_notice.iloc[i]['name'] + "\n공급유형 : " + gyeongbuk_notice.iloc[i]['title'] + "\n공고일자 : " + gyeongbuk_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -2537,7 +2612,7 @@ def gyeongsangBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "경상북도 내용",
+                        "description": gyeongbuk_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2545,12 +2620,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                                "webLinkUrl": gyeongbuk_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -2558,12 +2633,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                                "webLinkUrl": gyeongbuk_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -2571,12 +2646,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                                "webLinkUrl": gyeongbuk_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -2584,12 +2659,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                                "webLinkUrl": gyeongbuk_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -2597,12 +2672,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": gyeongbuk_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -2610,12 +2685,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                                "webLinkUrl": gyeongbuk_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -2623,12 +2698,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                                "webLinkUrl": gyeongbuk_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -2636,12 +2711,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                                "webLinkUrl": gyeongbuk_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -2649,12 +2724,12 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                                "webLinkUrl": gyeongbuk_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": gyeongbuk_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -2662,7 +2737,7 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": gyeongbuk_url_arr[9]
                             }
                         ]
                     }
@@ -2866,6 +2941,21 @@ def jeollaBukdo():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    jeonbuk_notice = pd.read_csv("./app/data/Jeonbuk_notice.csv")
+    jeonbuk_url = pd.read_csv("./app/data/Jeonbuk_url.csv")
+
+    # 값을 넣을 배열 선언
+    jeonbuk_notice_arr = [] # description에 들어갈 값
+    jeonbuk_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        jeonbuk_url_arr.append(jeonbuk_url.iloc[i]['url'])
+        jeonbuk_notice_arr.append(jeonbuk_notice.iloc[i]['name'] + "\n공급유형 : " + jeonbuk_notice.iloc[i]['title'] + "\n공고일자 : " + jeonbuk_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -2875,7 +2965,7 @@ def jeollaBukdo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "전라북도 내용",
+                        "description": jeonbuk_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -2883,12 +2973,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11432"
+                                "webLinkUrl": jeonbuk_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -2896,12 +2986,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11376"
+                                "webLinkUrl": jeonbuk_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -2909,12 +2999,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11328"
+                                "webLinkUrl": jeonbuk_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -2922,12 +3012,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11286"
+                                "webLinkUrl": jeonbuk_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -2935,12 +3025,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": jeonbuk_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -2948,12 +3038,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11242"
+                                "webLinkUrl": jeonbuk_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -2961,12 +3051,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11229"
+                                "webLinkUrl": jeonbuk_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -2974,12 +3064,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11285"
+                                "webLinkUrl": jeonbuk_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -2987,12 +3077,12 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11217"
+                                "webLinkUrl": jeonbuk_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "내용",
+                        "description": jeonbuk_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -3000,7 +3090,7 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": jeonbuk_url_arr[9]
                             }
                         ]
                     }
