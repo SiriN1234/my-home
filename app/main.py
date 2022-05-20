@@ -1,14 +1,9 @@
 from flask import Flask, request
 import json
-
-from app import test_text as tt
-
-
 import pandas as pd
 import csv
 
-
-
+from app import test_text as tt
 
 app = Flask(__name__)
 
