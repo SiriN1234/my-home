@@ -170,7 +170,8 @@ def cardTest():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335"
+                                "pcUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335",
+                                "mobileUrl" : "https://www.naver.com"
                             }
                         ]
                     },
