@@ -271,7 +271,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": nu.seoul_notice_arr[0],
+                        "description": nu.seoul_notice_return(0),
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -279,7 +279,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": nu.seoul_url_arr[0]
+                                "webLinkUrl": nu.seoul_url_return(0)
                             }
                         ]
                     },
