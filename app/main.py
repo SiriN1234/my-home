@@ -279,7 +279,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": nu.seoul_url_return(0)
+                                "webLinkUrl": "abc"
                             }
                         ]
                     },
