@@ -263,7 +263,7 @@ def seoul():
     print(body['userRequest']['utterance'])
 
     # csv파일 불러오기
-    seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+
     seoul_url = pd.read_csv("./data/Seoul_url.csv")
 
     responseBody = {
