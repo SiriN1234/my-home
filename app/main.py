@@ -267,15 +267,21 @@ def seoul():
     print(body['userRequest']['utterance'])
 
 
-    seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
+    # csv 파일 불러오기
     seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
+    seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
 
-    seoul_url_arr = []
-    seoul_notice_arr = []
 
+    # 값을 넣을 배열 선언
+    seoul_notice_arr = [] # description에 들어갈 값
+    seoul_url_arr = [] # webLinkUrl에 들어갈 값
+
+
+    # 반복문을 이용해 배열에 값 채워넣기
     for i in range(10) :
         seoul_url_arr.append(seoul_url.iloc[i]['url'])
         seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
+
 
 
     responseBody = {
@@ -300,7 +306,7 @@ def seoul():
                         ]
                     },
                     {
-                        "description": "『도봉구 신혼부부 맞춤형 공공임대주택 (공동체주택)』입주자 추가모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-06",
+                        "description": seoul_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -308,12 +314,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11291"
+                                "webLinkUrl": seoul_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "은평구 청년 창업인의 집 1호점 및 2호점 (수요자맞춤형 주택) 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-04",
+                        "description": seoul_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -321,12 +327,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11290"
+                                "webLinkUrl": seoul_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "description": seoul_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -334,12 +340,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": seoul_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "수요자(신혼부부) 맞춤형 공공주택 입주자 추가 모집\n공급유형 : 매입임대\n공고일자 : 2022-04-29",
+                        "description": seoul_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -347,12 +353,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11275"
+                                "webLinkUrl": seoul_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "수요자(모자가정) 맞춤형 공공주택 입주자 추가 모집\n공급유형 : 매입임대\n공고일자 : 2022-04-29",
+                        "description": seoul_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -360,12 +366,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11274"
+                                "webLinkUrl": seoul_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "2022년「신정동 청년협동조합 맞춤형 공동체주택」입주자 추가 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-29",
+                        "description": seoul_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -373,12 +379,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11251"
+                                "webLinkUrl": seoul_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 「신정동 신혼부부 맞춤형공동체주택」 입주자 추가모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-29",
+                        "description": seoul_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -386,12 +392,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11250"
+                                "webLinkUrl": seoul_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": seoul_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -399,12 +405,12 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": seoul_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅰ입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": seoul_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -412,7 +418,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11206"
+                                "webLinkUrl": seoul_url_arr[9]
                             }
                         ]
                     }
