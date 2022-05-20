@@ -261,6 +261,8 @@ def seoul():
     print(body)
     print(body['userRequest']['utterance'])
 
+
+    ###########################################################
     # csv 파일 불러오기
     seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
     seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
@@ -273,7 +275,9 @@ def seoul():
     for i in range(10) :
         seoul_url_arr.append(seoul_url.iloc[i]['url'])
         seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
-
+    ###########################################################
+    
+    
     responseBody = {
         "version": "2.0",
         "template": {
@@ -442,6 +446,21 @@ def gyeonggiDo():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    gyeonggi_notice = pd.read_csv("./app/data/Gyeonggi_notice.csv")
+    gyeonggi_url = pd.read_csv("./app/data/Gyeonggi_url.csv")
+
+    # 값을 넣을 배열 선언
+    gyeonggi_notice_arr = [] # description에 들어갈 값
+    gyeonggi_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        gyeonggi_url_arr.append(gyeonggi_url.iloc[i]['url'])
+        gyeonggi_notice_arr.append(gyeonggi_notice.iloc[i]['name'] + "\n공급유형 : " + gyeonggi_notice.iloc[i]['title'] + "\n공고일자 : " + gyeonggi_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -451,7 +470,7 @@ def gyeonggiDo():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "[정정공고]화성시 지역 행복주택 입주자격완화 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-13",
+                        "description": gyeonggi_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -459,12 +478,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11426"
+                                "webLinkUrl": gyeonggi_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "화성시 지역 행복주택 입주자격완화 예비입주자 모집\n공급유형 : 행복주택\n공고일자 : 2022-05-13",
+                        "description": gyeonggi_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -472,12 +491,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11351"
+                                "webLinkUrl": gyeonggi_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "파주운정3 A34블록 영구임대주택 추가 및 예비입주자모집공고(22.05.13)\n공급유형 : 영구임대\n공고일자 : 2022-05-13",
+                        "description": gyeonggi_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -485,12 +504,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11349"
+                                "webLinkUrl": gyeonggi_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "화성봉담2 A-2블록 신혼희망타운 행복주택 입주자격완화 추가모집\n공급유형 : 행복주택\n공고일자 : 2022-05-12",
+                        "description": gyeonggi_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -498,12 +517,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11346"
+                                "webLinkUrl": gyeonggi_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 경기도 시흥시 매입임대주택 입주자 선착순 수시모집\n공급유형 : 매입임대\n공고일자 : 2022-05-10",
+                        "description": gyeonggi_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -511,12 +530,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11342"
+                                "webLinkUrl": gyeonggi_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "[오산시] 다가구 등 매입임대주택 예비입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-10",
+                        "description": gyeonggi_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -524,12 +543,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11333"
+                                "webLinkUrl": gyeonggi_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]평택시,안성시 국민임대 예비입주자 모집공고(22.05.06)\n공급유형 : 국민임대\n공고일자 : 2022-05-06",
+                        "description": gyeonggi_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -537,12 +556,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11343"
+                                "webLinkUrl": gyeonggi_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 5월 고양시 지역 행복주택 예비입주자 모집 공고\n공급유형 : 행복주택\n공고일자 : 2022-05-06",
+                        "description": gyeonggi_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -550,12 +569,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11343"
+                                "webLinkUrl": gyeonggi_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]파주시 행복주택 입주자격완화 예비자 모집공고(22.5.6)\n공급유형 : 행복주택\n공고일자 : 2022-05-06",
+                        "description": gyeonggi_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -563,12 +582,12 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11326"
+                                "webLinkUrl": gyeonggi_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "남양주시 지역 국민임대주택 예비입주자 모집\n공급유형 : 국민임대\n공급일자 : 2022-05-06",
+                        "description": gyeonggi_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -576,7 +595,7 @@ def gyeonggiDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11320"
+                                "webLinkUrl": gyeonggi_url_arr[9]
                             }
                         ]
                     }
@@ -610,6 +629,21 @@ def incheon():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    incheon_notice = pd.read_csv("./app/data/Incheon_notice.csv")
+    incheon_url = pd.read_csv("./app/data/Incheon_url.csv")
+
+    # 값을 넣을 배열 선언
+    incheon_notice_arr = [] # description에 들어갈 값
+    incheon_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        incheon_url_arr.append(incheon_url.iloc[i]['url'])
+        incheon_notice_arr.append(incheon_notice.iloc[i]['name'] + "\n공급유형 : " + incheon_notice.iloc[i]['title'] + "\n공고일자 : " + incheon_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -619,7 +653,7 @@ def incheon():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "동인천역 파크푸르지오 공공임대주택(10년) 지구주민 우선공급 입주자모집 공고\n공급유형 : 10년임대\n공고일자 : 2022-05-13",
+                        "description": incheon_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -627,12 +661,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11355"
+                                "webLinkUrl": incheon_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "동인천역 파크푸르지오 영구 임대주택 지구주민 우선공급 입주자모집 공고\n공급유형 : 영구임대\n공고일자 : 2022-05-13",
+                        "description": incheon_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -640,12 +674,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11354"
+                                "webLinkUrl": incheon_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "행복주택(부평우민늘푸른) 예비입주자 모집공고(22.05.09공고)\n공급유형 : 행복주택\n공고일자 : 2022-05-09",
+                        "description": incheon_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -653,12 +687,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11327"
+                                "webLinkUrl": incheon_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "인천시[북서권] 국민임대주택 예비입주자 모집 공고(2022.05.06)\n공급유형 : 국민임대\n공고일자 : 2022-05-06",
+                        "description": incheon_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -666,12 +700,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11304"
+                                "webLinkUrl": incheon_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "22년 5월 인천지역(남동구, 중구) 국민임대주택 예비입주자 모집\n공급유형 : 국민임대\n공고일자 : 2022-05-06",
+                        "description": incheon_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -679,12 +713,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11303"
+                                "webLinkUrl": incheon_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "인천논현2단지 국민임대주택 예비입주자 모집 공고\n공급유형 : 국민임대\n공고일자 : 2022-05-06",
+                        "description": incheon_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -692,12 +726,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11292"
+                                "webLinkUrl": incheon_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "인천삼산4단지 국민임대주택 예비입주자 모집\n공급유형 : 국민임대\n공고일자 : 2022-05-06",
+                        "description": incheon_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -705,12 +739,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11292"
+                                "webLinkUrl": incheon_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "description": incheon_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -718,12 +752,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": incheon_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": incheon_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -731,12 +765,12 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": incheon_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅰ입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": incheon_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -744,7 +778,7 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11206"
+                                "webLinkUrl": incheon_url_arr[9]
                             }
                         ]
                     }
@@ -778,6 +812,21 @@ def daejeon():
     print(body)
     print(body['userRequest']['utterance'])
 
+    ###########################################################
+    # csv 파일 불러오기
+    daejeon_notice = pd.read_csv("./app/data/Daejeon_notice.csv")
+    daejeon_url = pd.read_csv("./app/data/Daejeon_url.csv")
+
+    # 값을 넣을 배열 선언
+    daejeon_notice_arr = [] # description에 들어갈 값
+    daejeon_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        daejeon_url_arr.append(daejeon_url.iloc[i]['url'])
+        daejeon_notice_arr.append(daejeon_notice.iloc[i]['name'] + "\n공급유형 : " + daejeon_notice.iloc[i]['title'] + "\n공고일자 : " + daejeon_notice.iloc[i]['re_date'])
+    ###########################################################
+
     responseBody = {
         "version": "2.0",
         "template": {
@@ -787,7 +836,7 @@ def daejeon():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "대전광역시 국민임대주택 예비입주자 모집공고(공고일:2022.05.16)\n공급유형 : 국민임대\n공고일자 : 2022-05-16",
+                        "description": daejeon_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -795,12 +844,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11413"
+                                "webLinkUrl": daejeon_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "대전천동3 5블록 10년 분양전환공공임대주택 지구주민(2,3순위) 우선공급 입주자모집공고\n공급유형 : 10년임대\n공고일자 : 2022-05-06",
+                        "description": daejeon_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -808,12 +857,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11298"
+                                "webLinkUrl": daejeon_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "description": daejeon_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -821,12 +870,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": daejeon_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n공고일자 : 2022-04-25",
+                        "description": daejeon_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -834,12 +883,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11207"
+                                "webLinkUrl": daejeon_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅰ입주자 수시모집(자격완화) 공고\n공급유형 : 전세임대\n\공고일자 : 2022-04-25",
+                        "description": daejeon_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -847,12 +896,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11206"
+                                "webLinkUrl": daejeon_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "대전도시공사 매입임대주택 상시모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-25",
+                        "description": daejeon_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -860,12 +909,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11219"
+                                "webLinkUrl": daejeon_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 청년 매입임대주택 선착순 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-04-18",
+                        "description": daejeon_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -873,12 +922,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11107"
+                                "webLinkUrl": daejeon_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 청년 매입임대주택 예비입주자 모집공고\n공급유형 : 매입임대\n공고일자 : 2022-04-04",
+                        "description": daejeon_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -886,12 +935,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11057"
+                                "webLinkUrl": daejeon_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": daejeon_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -899,12 +948,12 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11205"
+                                "webLinkUrl": daejeon_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고][정정공고][전국] 자립준비청년(보호종료아동) 매입임대 입주자 수시모집 공고	\n공급유형 : 매입임대\n공고일자 : 2022-01-14",
+                        "description": daejeon_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -912,7 +961,7 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10955"
+                                "webLinkUrl": daejeon_url_arr[9]
                             }
                         ]
                     }
@@ -941,11 +990,26 @@ def daejeon():
 
 
 # 세종특별자치시 임대주택 목록
-@app.route('/api/saejong', methods=['POST'])
-def saejong():
+@app.route('/api/sejong', methods=['POST'])
+def sejong():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
+
+    ###########################################################
+    # csv 파일 불러오기
+    sejong_notice = pd.read_csv("./app/data/Sejong_notice.csv")
+    sejong_url = pd.read_csv("./app/data/Sejong_url.csv")
+
+    # 값을 넣을 배열 선언
+    sejong_notice_arr = [] # description에 들어갈 값
+    sejong_url_arr = [] # webLinkUrl에 들어갈 값
+
+    # 반복문을 이용해 배열에 값 채워넣기
+    for i in range(10) :
+        sejong_url_arr.append(sejong_url.iloc[i]['url'])
+        sejong_notice_arr.append(sejong_notice.iloc[i]['name'] + "\n공급유형 : " + sejong_notice.iloc[i]['title'] + "\n공고일자 : " + sejong_notice.iloc[i]['re_date'])
+    ###########################################################
 
     responseBody = {
         "version": "2.0",
@@ -956,7 +1020,7 @@ def saejong():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
+                        "description": sejong_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -964,12 +1028,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11272"
+                                "webLinkUrl": sejong_url_arr[0]
                             }
                         ]
                     },
                     {
-                        "description": "전의면 사랑의 집(영구임대주택) 예비입주자 모집 공고\n공급유형 : 영구임대\n공고일자 :2022-03-08",
+                        "description": sejong_notice_arr[1],
                         "thumbnail": {
                             "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
@@ -977,12 +1041,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10807"
+                                "webLinkUrl": sejong_url_arr[1]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 :2022-01-14",
+                        "description": sejong_notice_arr[2],
                         "thumbnail": {
                             "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
@@ -990,12 +1054,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11205"
+                                "webLinkUrl": sejong_url_arr[2]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고][정정공고][전국] 자립준비청년(보호종료아동) 매입임대 입주자 수시모집 공고\n공급유형 : 매입임대\n공고일자 :2022-01-14",
+                        "description": sejong_notice_arr[3],
                         "thumbnail": {
                             "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
                         },
@@ -1003,12 +1067,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10955"
+                                "webLinkUrl": sejong_url_arr[3]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[4],
                         "thumbnail": {
                             "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
                         },
@@ -1016,12 +1080,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10768"
+                                "webLinkUrl": sejong_url_arr[4]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 신혼부부 전세임대Ⅱ 입주자 수시모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[5],
                         "thumbnail": {
                             "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
                         },
@@ -1029,12 +1093,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10767"
+                                "webLinkUrl": sejong_url_arr[5]
                             }
                         ]
                     },
                     {
-                        "description": "[정정공고]2022년 신혼부부 전세임대Ⅰ 입주자 수시모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[6],
                         "thumbnail": {
                             "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
                         },
@@ -1042,12 +1106,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10766"
+                                "webLinkUrl": sejong_url_arr[6]
                             }
                         ]
                     },
                     {
-                        "description": "22022년 신혼부부 전세임대Ⅰ 입주자 수시모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[7],
                         "thumbnail": {
                             "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
                         },
@@ -1055,12 +1119,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10644"
+                                "webLinkUrl": sejong_url_arr[7]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 청년 전세임대 1순위 입주자 수시모집\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[8],
                         "thumbnail": {
                             "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
                         },
@@ -1068,12 +1132,12 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10643"
+                                "webLinkUrl": sejong_url_arr[8]
                             }
                         ]
                     },
                     {
-                        "description": "2022년 신혼부부 전세임대Ⅱ 입주자 수시모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-01-14",
+                        "description": sejong_notice_arr[9],
                         "thumbnail": {
                             "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
                         },
@@ -1081,7 +1145,7 @@ def saejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=10642"
+                                "webLinkUrl": sejong_url_arr[9]
                             }
                         ]
                     }
