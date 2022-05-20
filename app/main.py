@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 
 from app import test_text as tt
-from app import data as dt
+import data as dt
 
 
 app = Flask(__name__)
