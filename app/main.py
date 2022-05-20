@@ -172,7 +172,7 @@ def cardTest():
                                 "label": "자세히 보기",
                                 "webLinkUrl": {
                                     "pcUrl" : "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335",
-                                    "moUrl" : "https://m.myhome.go.kr/hws/mbl/sch/selectRsdtLttotListView.do#detailPage?pblancId=11440&searchSe=R"
+                                    "mobileUrl" : "https://m.myhome.go.kr/hws/mbl/sch/selectRsdtLttotListView.do#detailPage?pblancId=11440&searchSe=R"
                                 }
                             }
                         ]
