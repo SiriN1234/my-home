@@ -1,9 +1,8 @@
 from flask import Flask, request
 import json
-import pandas as pd
-import csv
 
 from app import test_text as tt
+from app import data as dt
 
 
 app = Flask(__name__)
@@ -262,9 +261,6 @@ def seoul():
     print(body)
     print(body['userRequest']['utterance'])
 
-    # csv파일 불러오기
-
-    seoul_url = pd.read_csv("./data/Seoul_url.csv")
 
     responseBody = {
         "version": "2.0",
@@ -275,7 +271,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": "abc",
+                        "description": dt.seoul_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -283,7 +279,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": seoul_url.iloc[0]['url']
+                                "webLinkUrl": dt.seoul_url_arr[0]
                             }
                         ]
                     },
