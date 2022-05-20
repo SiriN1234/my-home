@@ -255,17 +255,18 @@ def cardTest():
 # 1p 서울, 경기, 인천, 대전, 세종, 부산, 울산, 대구, 광주
 # 2p 강원도, 충청남도, 충청북도, 경상남도, 경상북도, 전라남도, 전라북도, 제주특별자치도
 
+
+# csv파일 불러오기
+seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+seoul_url = pd.read_csv("./data/Seoul_url.csv")
+
 # 서울시 임대주택 목록
 @app.route('/api/seoul', methods=['POST'])
 def seoul():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
-    
-    
-    # csv파일 불러오기
-    seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
-    seoul_url = pd.read_csv("./data/Seoul_url.csv")
+
 
     responseBody = {
         "version": "2.0",
