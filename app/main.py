@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 
 from app import test_text as tt
-import notice_url as nu
+from app import notice_url as nu
 
 
 app = Flask(__name__)
