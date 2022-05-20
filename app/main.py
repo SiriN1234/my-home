@@ -265,7 +265,6 @@ def seoul():
     # csv파일 불러오기
     seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
     seoul_url = pd.read_csv("./data/Seoul_url.csv")
-    s_description = seoul_notice.iloc[0]['name'] + "\n공급유형 : " + seoul_notice.iloc[0]['title'] + "\n공고일자 : " + seoul_notice.iloc[0]['re_date']
 
     responseBody = {
         "version": "2.0",
