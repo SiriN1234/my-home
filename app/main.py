@@ -266,23 +266,18 @@ def seoul():
     print(body)
     print(body['userRequest']['utterance'])
 
-
     # csv 파일 불러오기
     seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
     seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
-
 
     # 값을 넣을 배열 선언
     seoul_notice_arr = [] # description에 들어갈 값
     seoul_url_arr = [] # webLinkUrl에 들어갈 값
 
-
     # 반복문을 이용해 배열에 값 채워넣기
     for i in range(10) :
         seoul_url_arr.append(seoul_url.iloc[i]['url'])
         seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
-
-
 
     responseBody = {
         "version": "2.0",
