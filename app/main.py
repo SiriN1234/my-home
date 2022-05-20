@@ -5,11 +5,19 @@ from app import test_text as tt
 
 
 app = Flask(__name__)
- 
+
+
+
+# 헬로우 월드 
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
+
+
+
+
+# 연습/테스트
 
 # 카카오톡 텍스트형 응답
 @app.route('/api/test', methods=['POST'])
@@ -34,8 +42,9 @@ def test():
     return responseBody
 
 
-# test1
 
+
+# test1
 def test_text() :
     a = "test1"
     return a
@@ -60,6 +69,8 @@ def test1():
     }
 
     return responseBody
+
+
 
 
 # 다른 파이썬 파일에서 함수 호출 연습
@@ -87,7 +98,7 @@ def test2():
 
 
 
-# 보물상자
+# 카드, 블록 연결 연습
 @app.route('/api/test3', methods=['POST'])
 def test3():
     body = request.get_json() # 사용자가 입력한 데이터
@@ -127,6 +138,7 @@ def test3():
 
 
 
+
 # description : 카드에 들어갈 텍스트
 # thumbnail(필수) : 카드에 들어갈 이미지
 # buttons : 카드 밑에 들어가는 버튼
@@ -141,6 +153,7 @@ def test3():
 # 블록ID 보는 방법
 # 오픈빌더에서 해당 블록에 들어간 후 주소를 보면 중간에 /intent/가 있음
 # 그 뒤의 값이 블록ID
+
 
 # 카카오톡 케로셀 카드 테스트
 @app.route('/api/cardTest', methods=['POST'])
@@ -226,6 +239,17 @@ def cardTest():
     return responseBody
 
 
+
+
+
+
+
+
+
+
+# 임대주택 목록 출력하는 카드
+# 1p 서울, 경기, 인천, 대전, 세종, 부산, 울산, 대구, 광주
+# 2p 강원도, 충청남도, 충청북도, 경상남도, 경상북도, 전라남도, 전라북도, 제주특별자치도
 
 # 서울시 임대주택 목록
 @app.route('/api/seoul', methods=['POST'])
@@ -383,7 +407,7 @@ def seoul():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -551,7 +575,7 @@ def gyeonggiDo():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -719,7 +743,7 @@ def incheon():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -887,7 +911,7 @@ def daejeon():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1056,7 +1080,7 @@ def saejong():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1224,7 +1248,7 @@ def busan():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1392,7 +1416,7 @@ def ulsan():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1561,7 +1585,7 @@ def daegu():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1730,7 +1754,7 @@ def gwangju():
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -1895,10 +1919,10 @@ def gangwonDo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2063,10 +2087,10 @@ def chungcheongNamdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2231,10 +2255,10 @@ def chungcheongBukdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2400,10 +2424,10 @@ def gyeongsangNamdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2570,10 +2594,10 @@ def gyeongsangBukdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2738,10 +2762,10 @@ def jeollaNamdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -2908,10 +2932,10 @@ def jeollaBukdo():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
@@ -3077,10 +3101,10 @@ def jeju():
         {
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
         },
         {
-            "label": "메인으로 돌아가기",
+            "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
         }
