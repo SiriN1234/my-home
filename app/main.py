@@ -2,7 +2,20 @@ from flask import Flask, request
 import json
 
 from app import test_text as tt
-from app import notice_url as nu
+
+
+import pandas as pd
+import csv
+
+seoul_url = pd.read_csv("./data/Seoul_url.csv")
+seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+
+seoul_url_arr = []
+seoul_notice_arr = []
+
+for i in range(10) :
+    seoul_url_arr.append(seoul_url.iloc[i]['url'])
+    seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
 
 
 app = Flask(__name__)
@@ -271,7 +284,7 @@ def seoul():
                 "type": "basicCard",
                 "items": [
                     {
-                        "description": nu.seoul_notice_return(0),
+                        "description": seoul_notice_arr[0],
                         "thumbnail": {
                             "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
                         },
@@ -279,7 +292,7 @@ def seoul():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": "abc"
+                                "webLinkUrl": seoul_url_arr[0]
                             }
                         ]
                     },
