@@ -257,8 +257,8 @@ def cardTest():
 
 
 # csv파일 불러오기
-seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
-seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
+seoul_notice = pd.read_csv("./data/Seoul_notice.csv")
+seoul_url = pd.read_csv("./data/Seoul_url.csv")
 
 # 서울시 임대주택 목록
 @app.route('/api/seoul', methods=['POST'])
