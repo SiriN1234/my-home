@@ -7,15 +7,7 @@ from app import test_text as tt
 import pandas as pd
 import csv
 
-seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
-seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
 
-seoul_url_arr = []
-seoul_notice_arr = []
-
-for i in range(10) :
-    seoul_url_arr.append(seoul_url.iloc[i]['url'])
-    seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
 
 
 app = Flask(__name__)
@@ -273,6 +265,17 @@ def seoul():
     body = request.get_json() # 사용자가 입력한 데이터
     print(body)
     print(body['userRequest']['utterance'])
+
+
+    seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
+    seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
+
+    seoul_url_arr = []
+    seoul_notice_arr = []
+
+    for i in range(10) :
+        seoul_url_arr.append(seoul_url.iloc[i]['url'])
+        seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
 
 
     responseBody = {
