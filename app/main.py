@@ -171,7 +171,7 @@ def cardTest():
                                 "action":  "Link",
                                 "label": "자세히 보기",
                                 "pcUrl": "https://www.myhome.go.kr/hws/portal/sch/selectRsdtRcritNtcDetailView.do?pblancId=11335",
-                                "moUrl" : "https://www.naver.com"
+                                "mobileUrl" : "https://www.naver.com"
                             }
                         ]
                     },
