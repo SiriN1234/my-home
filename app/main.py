@@ -261,7 +261,6 @@ def seoul():
     print(body)
     print(body['userRequest']['utterance'])
 
-
     ###########################################################
     # csv 파일 불러오기
     seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
@@ -276,7 +275,6 @@ def seoul():
         seoul_url_arr.append(seoul_url.iloc[i]['url'])
         seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
     ###########################################################
-    
     
     responseBody = {
         "version": "2.0",
