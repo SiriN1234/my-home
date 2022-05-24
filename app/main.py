@@ -2,6 +2,7 @@ from flask import Flask, request
 import json
 import pandas as pd
 import csv
+import random
 
 from app import test_text as tt
 
@@ -172,7 +173,7 @@ def cardTest():
                     {
                         "description": "『도봉구 신혼부부 맞춤형 공공임대주택 (공동체주택)』입주자 추가모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-06",
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
                         },
                         "buttons": [
                             {
@@ -185,7 +186,7 @@ def cardTest():
                     {
                         "description": "은평구 청년 창업인의 집 1호점 및 2호점 (수요자맞춤형 주택) 입주자 모집 공고\n공급유형 : 매입임대\n공고일자 : 2022-05-04",
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
                         },
                         "buttons": [
                             {
@@ -198,7 +199,7 @@ def cardTest():
                     {
                         "description": "2022 다자녀 전세임대 1순위 입주자 모집 공고\n공급유형 : 전세임대\n공고일자 : 2022-05-02",
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrLYeHWqhyQqNbQQCwa93FAFp7NgR-zLXwug&usqp=CAU"
                         },
                         "buttons": [
                             {
@@ -248,11 +249,19 @@ def cardTest():
 ###################################################################
 
 
-
-
 # 임대주택 목록 출력하는 카드
 # 1p 서울, 경기, 인천, 대전, 세종, 부산, 울산, 대구, 광주
 # 2p 강원도, 충청남도, 충청북도, 경상남도, 경상북도, 전라남도, 전라북도, 제주특별자치도
+
+
+###################################################################
+# thumbnail 불러오기
+thumbnail = pd.read_csv("./app/data/Thumbnail.csv")
+thumbnail_arr = []
+for i in range(10) :
+    thumbnail_arr.append(thumbnail.iloc[i]['thumbnail'])
+###################################################################
+
 
 # 서울시 임대주택 목록
 @app.route('/api/seoul', methods=['POST'])
@@ -274,6 +283,9 @@ def seoul():
     for i in range(10) :
         seoul_url_arr.append(seoul_url.iloc[i]['url'])
         seoul_notice_arr.append(seoul_notice.iloc[i]['name'] + "\n공급유형 : " + seoul_notice.iloc[i]['title'] + "\n공고일자 : " + seoul_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
     
     responseBody = {
@@ -287,7 +299,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -300,7 +312,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -313,7 +325,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -326,7 +338,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -339,7 +351,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -352,7 +364,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -365,7 +377,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -378,7 +390,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -391,7 +403,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -404,7 +416,7 @@ def seoul():
                     {
                         "description": seoul_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -457,6 +469,9 @@ def gyeonggiDo():
     for i in range(10) :
         gyeonggi_url_arr.append(gyeonggi_url.iloc[i]['url'])
         gyeonggi_notice_arr.append(gyeonggi_notice.iloc[i]['name'] + "\n공급유형 : " + gyeonggi_notice.iloc[i]['title'] + "\n공고일자 : " + gyeonggi_notice.iloc[i]['re_date'])
+    
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -470,7 +485,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -483,7 +498,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -496,7 +511,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -509,7 +524,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -522,7 +537,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -535,7 +550,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -548,7 +563,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -561,7 +576,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -574,7 +589,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -587,7 +602,7 @@ def gyeonggiDo():
                     {
                         "description": gyeonggi_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -640,6 +655,9 @@ def incheon():
     for i in range(10) :
         incheon_url_arr.append(incheon_url.iloc[i]['url'])
         incheon_notice_arr.append(incheon_notice.iloc[i]['name'] + "\n공급유형 : " + incheon_notice.iloc[i]['title'] + "\n공고일자 : " + incheon_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -653,7 +671,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -666,7 +684,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -679,7 +697,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -692,7 +710,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -705,7 +723,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -718,7 +736,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -731,7 +749,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -744,7 +762,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -757,7 +775,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -770,7 +788,7 @@ def incheon():
                     {
                         "description": incheon_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -823,6 +841,9 @@ def daejeon():
     for i in range(10) :
         daejeon_url_arr.append(daejeon_url.iloc[i]['url'])
         daejeon_notice_arr.append(daejeon_notice.iloc[i]['name'] + "\n공급유형 : " + daejeon_notice.iloc[i]['title'] + "\n공고일자 : " + daejeon_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -836,7 +857,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -849,7 +870,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -862,7 +883,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -875,7 +896,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -888,7 +909,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -901,7 +922,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -914,7 +935,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -927,7 +948,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -940,7 +961,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -953,7 +974,7 @@ def daejeon():
                     {
                         "description": daejeon_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1007,6 +1028,9 @@ def sejong():
     for i in range(10) :
         sejong_url_arr.append(sejong_url.iloc[i]['url'])
         sejong_notice_arr.append(sejong_notice.iloc[i]['name'] + "\n공급유형 : " + sejong_notice.iloc[i]['title'] + "\n공고일자 : " + sejong_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -1020,7 +1044,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1033,7 +1057,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1046,7 +1070,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1059,7 +1083,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1072,7 +1096,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -1085,7 +1109,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -1098,7 +1122,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -1111,7 +1135,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -1124,7 +1148,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -1137,7 +1161,7 @@ def sejong():
                     {
                         "description": sejong_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1190,6 +1214,9 @@ def busan():
     for i in range(10) :
         busan_url_arr.append(busan_url.iloc[i]['url'])
         busan_notice_arr.append(busan_notice.iloc[i]['name'] + "\n공급유형 : " + busan_notice.iloc[i]['title'] + "\n공고일자 : " + busan_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################    
 
     responseBody = {
@@ -1203,7 +1230,7 @@ def busan():
                     {
                         "description": busan_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1216,7 +1243,7 @@ def busan():
                     {
                         "description": busan_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1229,7 +1256,7 @@ def busan():
                     {
                         "description": busan_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1242,7 +1269,7 @@ def busan():
                     {
                         "description": busan_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1255,7 +1282,7 @@ def busan():
                     {
                         "description": busan_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -1268,7 +1295,7 @@ def busan():
                     {
                         "description": busan_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -1281,7 +1308,7 @@ def busan():
                     {
                         "description": busan_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -1294,7 +1321,7 @@ def busan():
                     {
                         "description": busan_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -1307,7 +1334,7 @@ def busan():
                     {
                         "description": busan_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -1320,7 +1347,7 @@ def busan():
                     {
                         "description": busan_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1373,6 +1400,9 @@ def ulsan():
     for i in range(10) :
         ulsan_url_arr.append(ulsan_url.iloc[i]['url'])
         ulsan_notice_arr.append(ulsan_notice.iloc[i]['name'] + "\n공급유형 : " + ulsan_notice.iloc[i]['title'] + "\n공고일자 : " + ulsan_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -1386,7 +1416,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1399,7 +1429,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1412,7 +1442,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1425,7 +1455,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1438,7 +1468,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -1451,7 +1481,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -1464,7 +1494,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -1477,7 +1507,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -1490,7 +1520,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -1503,7 +1533,7 @@ def ulsan():
                     {
                         "description": ulsan_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1557,6 +1587,9 @@ def daegu():
     for i in range(10) :
         daegu_url_arr.append(daegu_url.iloc[i]['url'])
         daegu_notice_arr.append(daegu_notice.iloc[i]['name'] + "\n공급유형 : " + daegu_notice.iloc[i]['title'] + "\n공고일자 : " + daegu_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -1570,7 +1603,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1583,7 +1616,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1596,7 +1629,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1609,7 +1642,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1622,7 +1655,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -1635,7 +1668,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -1648,7 +1681,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -1661,7 +1694,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -1674,7 +1707,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -1687,7 +1720,7 @@ def daegu():
                     {
                         "description": daegu_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1741,6 +1774,9 @@ def gwangju():
     for i in range(10) :
         gwangju_url_arr.append(gwangju_url.iloc[i]['url'])
         gwangju_notice_arr.append(gwangju_notice.iloc[i]['name'] + "\n공급유형 : " + gwangju_notice.iloc[i]['title'] + "\n공고일자 : " + gwangju_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -1754,7 +1790,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1767,7 +1803,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1780,7 +1816,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1793,7 +1829,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1806,7 +1842,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -1819,7 +1855,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -1832,7 +1868,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -1845,7 +1881,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -1858,7 +1894,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -1871,7 +1907,7 @@ def gwangju():
                     {
                         "description": gwangju_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -1924,6 +1960,9 @@ def gangwonDo():
     for i in range(10) :
         gangwon_url_arr.append(gangwon_url.iloc[i]['url'])
         gangwon_notice_arr.append(gangwon_notice.iloc[i]['name'] + "\n공급유형 : " + gangwon_notice.iloc[i]['title'] + "\n공고일자 : " + gangwon_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -1937,7 +1976,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -1950,7 +1989,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -1963,7 +2002,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -1976,7 +2015,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -1989,7 +2028,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2002,7 +2041,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2015,7 +2054,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2028,7 +2067,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2041,7 +2080,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2054,7 +2093,7 @@ def gangwonDo():
                     {
                         "description": gangwon_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -2107,6 +2146,9 @@ def chungcheongNamdo():
     for i in range(10) :
         chungnam_url_arr.append(chungnam_url.iloc[i]['url'])
         chungnam_notice_arr.append(chungnam_notice.iloc[i]['name'] + "\n공급유형 : " + chungnam_notice.iloc[i]['title'] + "\n공고일자 : " + chungnam_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -2120,7 +2162,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -2133,7 +2175,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -2146,7 +2188,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -2159,7 +2201,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -2172,7 +2214,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2185,7 +2227,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2198,7 +2240,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2211,7 +2253,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2224,7 +2266,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2237,7 +2279,7 @@ def chungcheongNamdo():
                     {
                         "description": chungnam_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -2290,6 +2332,9 @@ def chungcheongBukdo():
     for i in range(10) :
         chungbuk_url_arr.append(chungbuk_url.iloc[i]['url'])
         chungbuk_notice_arr.append(chungbuk_notice.iloc[i]['name'] + "\n공급유형 : " + chungbuk_notice.iloc[i]['title'] + "\n공고일자 : " + chungbuk_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -2303,7 +2348,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -2316,7 +2361,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -2329,7 +2374,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -2342,7 +2387,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -2355,7 +2400,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2368,7 +2413,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2381,7 +2426,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2394,7 +2439,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2407,7 +2452,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2420,7 +2465,7 @@ def chungcheongBukdo():
                     {
                         "description": chungbuk_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -2474,6 +2519,9 @@ def gyeongsangNamdo():
     for i in range(10) :
         gyeongnam_url_arr.append(gyeongnam_url.iloc[i]['url'])
         gyeongnam_notice_arr.append(gyeongnam_notice.iloc[i]['name'] + "\n공급유형 : " + gyeongnam_notice.iloc[i]['title'] + "\n공고일자 : " + gyeongnam_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -2487,7 +2535,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -2500,7 +2548,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -2513,7 +2561,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -2526,7 +2574,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -2539,7 +2587,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2552,7 +2600,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2565,7 +2613,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2578,7 +2626,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2591,7 +2639,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2604,7 +2652,7 @@ def gyeongsangNamdo():
                     {
                         "description": gyeongnam_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -2659,6 +2707,9 @@ def gyeongsangBukdo():
     for i in range(10) :
         gyeongbuk_url_arr.append(gyeongbuk_url.iloc[i]['url'])
         gyeongbuk_notice_arr.append(gyeongbuk_notice.iloc[i]['name'] + "\n공급유형 : " + gyeongbuk_notice.iloc[i]['title'] + "\n공고일자 : " + gyeongbuk_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -2672,7 +2723,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -2685,7 +2736,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -2698,7 +2749,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -2711,7 +2762,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -2724,7 +2775,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2737,7 +2788,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2750,7 +2801,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2763,7 +2814,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2776,7 +2827,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2789,7 +2840,7 @@ def gyeongsangBukdo():
                     {
                         "description": gyeongbuk_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -2842,6 +2893,9 @@ def jeollaNamdo():
     for i in range(10) :
         jeonnam_url_arr.append(jeonnam_url.iloc[i]['url'])
         jeonnam_notice_arr.append(jeonnam_notice.iloc[i]['name'] + "\n공급유형 : " + jeonnam_notice.iloc[i]['title'] + "\n공고일자 : " + jeonnam_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -2855,7 +2909,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -2868,7 +2922,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -2881,7 +2935,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -2894,7 +2948,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -2907,7 +2961,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -2920,7 +2974,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -2933,7 +2987,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -2946,7 +3000,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -2959,7 +3013,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -2972,7 +3026,7 @@ def jeollaNamdo():
                     {
                         "description": jeonnam_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -3027,6 +3081,9 @@ def jeollaBukdo():
     for i in range(10) :
         jeonbuk_url_arr.append(jeonbuk_url.iloc[i]['url'])
         jeonbuk_notice_arr.append(jeonbuk_notice.iloc[i]['name'] + "\n공급유형 : " + jeonbuk_notice.iloc[i]['title'] + "\n공고일자 : " + jeonbuk_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -3040,7 +3097,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -3053,7 +3110,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -3066,7 +3123,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -3079,7 +3136,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -3092,7 +3149,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -3105,7 +3162,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -3118,7 +3175,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -3131,7 +3188,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -3144,7 +3201,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -3157,7 +3214,7 @@ def jeollaBukdo():
                     {
                         "description": jeonbuk_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
@@ -3211,6 +3268,9 @@ def jeju():
     for i in range(10) :
         jeju_url_arr.append(jeju_url.iloc[i]['url'])
         jeju_notice_arr.append(jeju_notice.iloc[i]['name'] + "\n공급유형 : " + jeju_notice.iloc[i]['title'] + "\n공고일자 : " + jeju_notice.iloc[i]['re_date'])
+        
+    # imageUrl에 들어갈 값 랜덤으로 섞기
+    rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
     responseBody = {
@@ -3224,7 +3284,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[0],
                         "thumbnail": {
-                            "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2017.08/09/2322222_cp.jpg"
+                            "imageUrl": rand_thumb[0]
                         },
                         "buttons": [
                             {
@@ -3237,7 +3297,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[1],
                         "thumbnail": {
-                            "imageUrl": "https://news.imaeil.com/photos/2020/05/06/2020050612251729107_l.jpg"
+                            "imageUrl": rand_thumb[1]
                         },
                         "buttons": [
                             {
@@ -3250,7 +3310,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[2],
                         "thumbnail": {
-                            "imageUrl": "https://img.hani.co.kr/imgdb/resize/2018/1126/00502924_20181126.JPG"
+                            "imageUrl": rand_thumb[2]
                         },
                         "buttons": [
                             {
@@ -3263,7 +3323,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[3],
                         "thumbnail": {
-                            "imageUrl": "https://img.hankyung.com/photo/202202/01.29018214.1.jpg"
+                            "imageUrl": rand_thumb[3]
                         },
                         "buttons": [
                             {
@@ -3276,7 +3336,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[4],
                         "thumbnail": {
-                            "imageUrl": "https://cdn.eroun.net/news/photo/201811/3955_16392_146.jpg"
+                            "imageUrl": rand_thumb[4]
                         },
                         "buttons": [
                             {
@@ -3289,7 +3349,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[5],
                         "thumbnail": {
-                            "imageUrl": "http://newsroom.etomato.com/userfiles/suwon%20kwonsun.jpg"
+                            "imageUrl": rand_thumb[5]
                         },
                         "buttons": [
                             {
@@ -3302,7 +3362,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[6],
                         "thumbnail": {
-                            "imageUrl": "https://post-phinf.pstatic.net/MjAyMTA2MDRfMTY2/MDAxNjIyNzkxODYwMzI4.I0nOP1lyXNA2J-so9L1dmQ4W0L8L3j4n3IHI35--6RMg.S1vc0fkJloQLMbD9FQHIrn2vHgJgiy0CsoC6Stth7Vcg.JPEG/1.JPG?type=w1200"
+                            "imageUrl": rand_thumb[6]
                         },
                         "buttons": [
                             {
@@ -3315,7 +3375,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[7],
                         "thumbnail": {
-                            "imageUrl": "https://img.sbs.co.kr/newimg/news/20220316/201647138_1280.jpg"
+                            "imageUrl": rand_thumb[7]
                         },
                         "buttons": [
                             {
@@ -3328,7 +3388,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[8],
                         "thumbnail": {
-                            "imageUrl": "https://www.shinailbo.co.kr/news/photo/202104/1398185_608466_5339.jpg"
+                            "imageUrl": rand_thumb[8]
                         },
                         "buttons": [
                             {
@@ -3341,7 +3401,7 @@ def jeju():
                     {
                         "description": jeju_notice_arr[9],
                         "thumbnail": {
-                            "imageUrl": "https://mediahub.seoul.go.kr/uploads/mediahub/2022/04/xsGpaZKCJGgdCtbWtiUMtHADDDbAlizt.png"
+                            "imageUrl": rand_thumb[9]
                         },
                         "buttons": [
                             {
