@@ -1,6 +1,8 @@
 from flask import Blueprint
 from flask import Flask, request, jsonify
 import pandas as pd
+import csv
+import random
 
 
 app = Blueprint("region_list", __name__)
