@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Blueprint
 import json
 import pandas as pd
 import csv
@@ -6,7 +6,11 @@ import random
 
 from app import test_text as tt
 
+from . import bl_test
+
 app = Flask(__name__)
+
+app.register_blueprint(bl_test.blue_test)
 
 
 
