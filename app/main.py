@@ -10,7 +10,7 @@ from . import bl_test
 
 app = Flask(__name__)
 
-app.register_blueprint(bl_test.blue_test)
+app.register_blueprint(bl_test.app)
 
 
 
