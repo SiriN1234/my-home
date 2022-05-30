@@ -2,41 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f569b1d2-8aa7-4111-bfc6-7c549f005969" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/data/Busan_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Busan_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Chungbuk_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Chungbuk_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Chungnam_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Chungnam_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Daegu_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Daegu_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Daejeon_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Daejeon_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gangwon_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gangwon_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gwangju_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gwangju_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeongbuk_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeongbuk_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeonggi_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeonggi_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeongnam_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Gyeongnam_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Incheon_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Incheon_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeju_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeju_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeonbuk_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeonbuk_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeonnam_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Jeonnam_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Sejong_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Sejong_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Seoul_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Seoul_url.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Thumbnail.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Ulsan_notice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/Ulsan_url.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/region_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/region_list.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
