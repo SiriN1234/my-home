@@ -27,11 +27,11 @@ def show_intro():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '행복주택':
-        intro_data = pd.read_csv("./service_guide_data/house_welfare/happy_house/feature.csv")
-        intro_data_1 = pd.read_csv("./service_guide_data/house_welfare/happy_house/vs_table.csv")
+        intro_data = pd.read_csv("./crawl/service_guide_data/house_welfare/happy_house/feature.csv")
+        intro_data_1 = pd.read_csv("./crawl/service_guide_data/house_welfare/happy_house/vs_table.csv")
     
     elif welfare_type == '주거복지동주택':
-        intro_data = pd.read_csv("./service_guide_data/house_welfare/dwelling_welfare/intro.csv")
+        intro_data = pd.read_csv("./crawl/service_guide_data/house_welfare/dwelling_welfare/intro.csv")
         
     else:
         pass
@@ -124,7 +124,7 @@ def show_max_term():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '행복주택':
-        term_data = pd.read_csv("./service_guide_data/house_welfare/happy_house/max_term.csv")
+        term_data = pd.read_csv("./crawl/service_guide_data/house_welfare/happy_house/max_term.csv")
     # -------------------------------------------------------------------------------------------
     
     # ----------------------------------------------
@@ -181,7 +181,7 @@ def show_detail_info():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '공공지원민간임대주택':
-        info_data = pd.read_csv("./service_guide_data/house_welfare/public_support_lease/detail_info.csv")
+        info_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_support_lease/detail_info.csv")
     # -------------------------------------------------------------------------------------------
     
     # ----------------------------------------------

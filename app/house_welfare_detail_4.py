@@ -27,7 +27,7 @@ def show_supply():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '주거복지동주택':
-        area_data = pd.read_csv("./service_guide_data/house_welfare/dwelling_welfare/supply_area.csv")
+        area_data = pd.read_csv("./crawl/service_guide_data/house_welfare/dwelling_welfare/supply_area.csv")
         
     else:
         pass

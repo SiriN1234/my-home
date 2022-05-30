@@ -26,7 +26,7 @@ def show_move_in_target():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '전세임대주택':
-        target_data = pd.read_csv("./service_guide_data/house_welfare/deposit_lease/moving_in_subject.csv")
+        target_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/moving_in_subject.csv")
     # -------------------------------------------------------------------------------------------
     res = {
     "version": "2.0",
@@ -122,10 +122,10 @@ def show_target_house():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '전세임대주택':
-        target_data = pd.read_csv("./service_guide_data/house_welfare/deposit_lease/house_object.csv")
+        target_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/house_object.csv")
     elif welfare_type == '공공기숙사':
-        target_data = pd.read_csv("./service_guide_data/house_welfare/public_dormitory/recruiting_house_type.csv")
-        target_data_1 = pd.read_csv("./service_guide_data/house_welfare/public_dormitory/dwelling_type.csv")
+        target_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/recruiting_house_type.csv")
+        target_data_1 = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/dwelling_type.csv")
     else:
         pass
     # -------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ def show_support_limit():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '전세임대주택':
-        limit_data = pd.read_csv("./service_guide_data/house_welfare/deposit_lease/deposit_support_limit.csv")
+        limit_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/deposit_support_limit.csv")
     # -------------------------------------------------------------------------------------------
     res = {
     "version": "2.0",
@@ -254,7 +254,7 @@ def show_lease_condition():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '전세임대주택':
-        condition_data = pd.read_csv("./service_guide_data/house_welfare/deposit_lease/lease_condition.csv")
+        condition_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/lease_condition.csv")
     # -------------------------------------------------------------------------------------------
     res = {
     "version": "2.0",
@@ -308,7 +308,7 @@ def show_lease_term():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '전세임대주택':
-        term_data = pd.read_csv("./service_guide_data/house_welfare/deposit_lease/lease_term.csv")
+        term_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/lease_term.csv")
     # -------------------------------------------------------------------------------------------
     res = {
     "version": "2.0",

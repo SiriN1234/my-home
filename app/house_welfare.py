@@ -26,7 +26,7 @@ def house_welfare_info_des():
     
     
     
-    welfare_info_house = pd.read_csv("./service_guide_data/welfare_info/housing_welfare_service.csv")
+    welfare_info_house = pd.read_csv("./crawl/service_guide_data/welfare_info/housing_welfare_service.csv")
     
     welfare_dict = {'통합공공임대주택' : 0, '영구임대주택' : 1, '행복주택': 2, 
                     '전세임대주택': 3, '매입임대주택' : 4, '국민임대주택' : 5, 
@@ -78,7 +78,7 @@ def housing_welfare():
     print(body)
     print(body['userRequest']['utterance'])
     
-    welfare_info_house = pd.read_csv("./service_guide_data/welfare_info/housing_welfare_service.csv")
+    welfare_info_house = pd.read_csv("./crawl/service_guide_data/welfare_info/housing_welfare_service.csv")
     
     # ----------------------------------------------
     res = {
