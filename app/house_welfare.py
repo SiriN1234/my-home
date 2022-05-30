@@ -49,18 +49,18 @@ def house_welfare_info_des():
                 {
                 "label": "상세정보",
                 "action": "block",
-                "blockId": "628af60133d26f492e9ec5be",
+                "blockId": "6294621dfab76c716dbf5042?scenarioId=629461f9890e4a16d6ad45e9",
                 "extra": {"welfare_type" : welfare_type}
                 },
                 {
                 "label": "주택복지",
                 "action": "block",
-                "blockId": "62859d5e33d26f492e9e84ed"
+                "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"
                 },
                 {
                 "label": "메인메뉴",
                 "action": "block",
-                "blockId": "62873757ee5923754330c0b2"
+                "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
                 }
             ]
         }
@@ -123,7 +123,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "6285ee6d33d26f492e9e91a9",
+                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
@@ -162,7 +162,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "6285ee6d33d26f492e9e91a9",
+                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
@@ -176,7 +176,7 @@ def housing_welfare():
 
     tmp_quickReplies_set['quickReplies'].append({
         "action": "block",
-        "blockId": "62873757ee5923754330c0b2",
+        "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72",
         "label": "메인메뉴"
       })
     

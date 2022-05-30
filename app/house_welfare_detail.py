@@ -103,7 +103,7 @@ def show_moving_in_qual_ranking():
     
     #if welfare_type != '공공임대주택': 
     #    tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block",
-    #                                                "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+    #                                                "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     if welfare_type == '공공임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "주택유형", "action": "block", 
@@ -115,7 +115,7 @@ def show_moving_in_qual_ranking():
         
     elif welfare_type == '주거복지동주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주 자격·선정순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
         
@@ -123,16 +123,16 @@ def show_moving_in_qual_ranking():
         tmp_quickReplies_set['quickReplies'].append({"label": "대상주택", "action": "block", 
                                                      "blockId": "628ed39b7bd2fd433357fa84", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청대상", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     else:
         pass
         
     tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block",
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
-                                                     "blockId": "62859d5e33d26f492e9e84ed"})
+                                                     "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
-                                                     "blockId": "62873757ee5923754330c0b2"})
+                                                     "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
         
     res['template'].update(tmp_quickReplies_set)
         
@@ -207,7 +207,7 @@ def show_apply_step():
                                                                       "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block",
-                "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     if welfare_type == '통합공공임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소득·자산 산정방법", "action": "block",
@@ -249,37 +249,37 @@ def show_apply_step():
                                                      "blockId": "628edc977bd2fd433357fddb", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '행복주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "최대 거주기간", "action": "block", 
                                                      "blockId": "628ee94743b3015cb0df9f34", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공지원민간임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "상세안내", "action": "block", 
                                                      "blockId": "628ef4c77befc3101c3bc601", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '주거복지동주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주 자격·선정순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공기숙사':
         tmp_quickReplies_set['quickReplies'].append({"label": "대상주택", "action": "block", 
                                                      "blockId": "628ed39b7bd2fd433357fa84", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청대상", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청자격·순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
     else:
         pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
-                "blockId": "62859d5e33d26f492e9e84ed"})
+                "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
-                "blockId": "62873757ee5923754330c0b2"})
+                "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
         
     res['template'].update(tmp_quickReplies_set)
         
@@ -340,7 +340,7 @@ def show_general_supply_selection():
                                                             "webLinkUrl": URL + service_code[welfare_type]}]}})
         
     tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block",
-                "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     if welfare_type == '통합공공임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소득·자산 산정방법", "action": "block",
@@ -357,11 +357,11 @@ def show_general_supply_selection():
         pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block",
-                "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
-                "blockId": "62859d5e33d26f492e9e84ed"})
+                "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
-                "blockId": "62873757ee5923754330c0b2"})
+                "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
         
     res['template'].update(tmp_quickReplies_set)
         
@@ -413,7 +413,7 @@ def show_income_asset_how():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
         
     tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block",
-                "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     if welfare_type == '통합공공임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "일반 입주·선정방법", "action": "block",
@@ -428,11 +428,11 @@ def show_income_asset_how():
         pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block",
-                "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
-                "blockId": "62859d5e33d26f492e9e84ed"})
+                "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
-                "blockId": "62873757ee5923754330c0b2"})
+                "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
         
     res['template'].update(tmp_quickReplies_set)
         
@@ -574,12 +574,12 @@ def show_moving_in_qual():
                                                      "blockId": "628db87851c40d32c6d8a01f", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '행복주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "최대 거주기간", "action": "block", 
                                                      "blockId": "628ee94743b3015cb0df9f34", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공지원민간임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "상세안내", "action": "block", 
                                                      "blockId": "628ef4c77befc3101c3bc601", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공기숙사':
@@ -594,13 +594,13 @@ def show_moving_in_qual():
     
     if welfare_type != '장기전세주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     else:
         pass
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
-                                                     "blockId": "62859d5e33d26f492e9e84ed"})
+                                                     "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
-                                                     "blockId": "62873757ee5923754330c0b2"})
+                                                     "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
     res['template'].update(tmp_quickReplies_set)
         
     return jsonify(res)
@@ -631,25 +631,25 @@ def blue_house_welfare_detail_selection():
     
     if welfare_type == '통합공공임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "소득·자산 산정방법", "action": "block", 
                                                      "blockId": "628b1ed4055a574d7df534ff", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "일반 입주·선정방법", "action": "block", 
                                                      "blockId": "628b2f71055a574d7df5383d", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     elif welfare_type == '영구임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주·선정순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     elif welfare_type == '국민임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "소득·자산 산정방법", "action": "block", 
                                                      "blockId": "628b1ed4055a574d7df534ff", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "일반공급 자격·선정순위", "action": "block", 
@@ -657,11 +657,11 @@ def blue_house_welfare_detail_selection():
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자 선정기준", "action": "block", 
                                                      "blockId": "628da0c67befc3101c3ba553", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     elif welfare_type == '장기전세주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "임대보증금 수준", "action": "block", 
                                                      "blockId": "628db87851c40d32c6d8a01f", "extra": {"welfare_type" : welfare_type}})
     
@@ -675,7 +675,7 @@ def blue_house_welfare_detail_selection():
         tmp_quickReplies_set['quickReplies'].append({"label": "분양전환", "action": "block", 
                                                      "blockId": "628dd5c77befc3101c3bad00", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         
     elif welfare_type == '전세임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "입주대상", "action": "block", 
@@ -689,52 +689,52 @@ def blue_house_welfare_detail_selection():
         tmp_quickReplies_set['quickReplies'].append({"label": "임대기간", "action": "block", 
                                                      "blockId": "628edc977bd2fd433357fddb", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '행복주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "최대 거주기간", "action": "block", 
                                                      "blockId": "628ee94743b3015cb0df9f34", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     elif welfare_type == '공공지원민간임대주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "상세안내", "action": "block", 
                                                      "blockId": "628ef4c77befc3101c3bc601", "extra": {"welfare_type" : welfare_type}})
         
     elif welfare_type == '주거복지동주택':
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "628ee1f87bd2fd433357fef8", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주 자격·선정순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "공급지역", "action": "block", 
                                                      "blockId": "62932d9751c40d32c6d8f583", "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공기숙사':
         tmp_quickReplies_set['quickReplies'].append({"label": "대상주택", "action": "block", 
                                                      "blockId": "628ed39b7bd2fd433357fa84", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청대상", "action": "block", 
-                                                     "blockId": "628b0241bacfd86a3725d282", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청자격·순위", "action": "block", 
                                                      "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "628b38eb055a574d7df53a46", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     else:
         pass
 
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
-                                                     "blockId": "62859d5e33d26f492e9e84ed"})
+                                                     "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block", 
-                                                     "blockId": "62873757ee5923754330c0b2"})
+                                                     "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"})
     
     res['template'].update(tmp_quickReplies_set)
         

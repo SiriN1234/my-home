@@ -28,9 +28,14 @@ def main_menu_1():
           },
           "buttons": [
             {
-              "label": "주택복지",
+              "label": "주택복지 목록 보기",
               "action": "block",
-              "blockId": "62859d5e33d26f492e9e84ed"
+              "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"
+            },
+            {
+              "label": "임대주택 공고 보기",
+              "action": "block",
+              "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
             }
             
           ]
