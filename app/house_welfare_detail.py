@@ -35,13 +35,13 @@ def show_moving_in_qual_ranking():
     tmp_quickReplies_set = {"quickReplies": []}
     # ----- data url ---------------------------------------------------------------------------------
     if welfare_type == '영구임대주택':
-        moving_data = pd.read_csv("./crawl/service_guide_data/house_welfare/permanent_lease/Selection_Ranking.csv")
+        moving_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/permanent_lease/Selection_Ranking.csv")
     elif welfare_type == '공공임대주택':
-        moving_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_lease/moving_in_selection_rank.csv")
+        moving_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_lease/moving_in_selection_rank.csv")
     elif welfare_type == '주거복지동주택':
-        moving_data = pd.read_csv("./crawl/service_guide_data/house_welfare/dwelling_welfare/qualification.csv")
+        moving_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/dwelling_welfare/qualification.csv")
     elif welfare_type == '공공기숙사':
-        moving_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/selection_criteria.csv")
+        moving_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_dormitory/selection_criteria.csv")
     else:
         pass
     # ------------------------------------------------------------------------------------------------
@@ -157,23 +157,23 @@ def show_apply_step():
     
     # ----- data url -------------------------------------------------------------------------------
     if welfare_type == '통합공공임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/total_public/total_public_app_process.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/total_public/total_public_app_process.csv")
     elif welfare_type == '영구임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/permanent_lease/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/permanent_lease/apply_step.csv")
     elif welfare_type == '국민임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/kukmin_lease/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/kukmin_lease/apply_step.csv")
     elif welfare_type == '공공임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_lease/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_lease/apply_step.csv")
     elif welfare_type == '전세임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/deposit_lease/how_apply.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/deposit_lease/how_apply.csv")
     elif welfare_type == '행복주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/happy_house/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/happy_house/apply_step.csv")
     elif welfare_type == '공공지원민간임대주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_support_lease/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_support_lease/apply_step.csv")
     elif welfare_type == '주거복지동주택':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/dwelling_welfare/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/dwelling_welfare/apply_step.csv")
     elif welfare_type == '공공기숙사':
-        step_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/apply_step.csv")
+        step_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_dormitory/apply_step.csv")
     else:
         pass
     #-----------------------------------------------------------------------------------------------
@@ -303,9 +303,9 @@ def show_general_supply_selection():
     tmp_quickReplies_set = {"quickReplies": []}
     # ----- data url ---------------------------------------------------------------------------------------------
     if welfare_type == '통합공공임대주택':
-        general_data = pd.read_csv("./crawl/service_guide_data/house_welfare/total_public/total_public_general_supply_select.csv")
+        general_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/total_public/total_public_general_supply_select.csv")
     elif welfare_type == '국민임대주택':
-        general_data = pd.read_csv("./crawl/service_guide_data/house_welfare/kukmin_lease/normal_supply_qual_choose.csv")
+        general_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/kukmin_lease/normal_supply_qual_choose.csv")
     else:
         pass
     #-------------------------------------------------------------------------------------------------------------
@@ -386,9 +386,9 @@ def show_income_asset_how():
     
     # ----- data url -------------------------------------------------------------------------------------------
     if welfare_type == '통합공공임대주택':
-        income_data = pd.read_csv("./crawl/service_guide_data/house_welfare/total_public/total_public_members_median_income.csv")
+        income_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/total_public/total_public_members_median_income.csv")
     elif welfare_type == '국민임대주택':
-        income_data = pd.read_csv("./crawl/service_guide_data/house_welfare/kukmin_lease/income_asset_cal.csv")
+        income_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/kukmin_lease/income_asset_cal.csv")
     else:
         pass
     # ----------------------------------------------------------------------------------------------------------
@@ -456,18 +456,18 @@ def show_moving_in_qual():
     
     # ----- data url ----------------------------------------------------------------------------
     if welfare_type == '통합공공임대주택':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/total_public/total_public_Tenant_Qual.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/total_public/total_public_Tenant_Qual.csv")
     elif welfare_type == '영구임대주택':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/permanent_lease/homeless_household_note.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/permanent_lease/homeless_household_note.csv")
     elif welfare_type == '국민임대주택':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/kukmin_lease/homeless_household_note.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/kukmin_lease/homeless_household_note.csv")
     elif welfare_type == '장기전세주택':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/long_term_lease/homeless_household_note.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/long_term_lease/homeless_household_note.csv")
     elif welfare_type == '행복주택':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/happy_house/moving_in_qual.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/happy_house/moving_in_qual.csv")
     elif welfare_type == '공공기숙사':
-        qual = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/happy_apply.csv")
-        qual_1 = pd.read_csv("./crawl/service_guide_data/house_welfare/public_dormitory/hope_apply.csv")
+        qual = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_dormitory/happy_apply.csv")
+        qual_1 = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_dormitory/hope_apply.csv")
     else:
         pass
     # --------------------------------------------------------------------------------------------

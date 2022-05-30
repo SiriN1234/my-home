@@ -125,7 +125,7 @@ def show_house_type():
     
     # ----- data url ---------------------------------------------------------------------
     if welfare_type == '공공임대주택':
-        house_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_lease/housing_type.csv")
+        house_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_lease/housing_type.csv")
     # ------------------------------------------------------------------------------------
     
     res = {
@@ -177,7 +177,7 @@ def show_special_supply():
     
     # ----- data url ---------------------------------------------------------------------
     if welfare_type == '공공임대주택':
-        supply_data = pd.read_csv("./crawl/service_guide_data/house_welfare/public_lease/special_supply.csv")
+        supply_data = pd.read_csv("./app/crawl/service_guide_data/house_welfare/public_lease/special_supply.csv")
     # ------------------------------------------------------------------------------------
     
     res = {
