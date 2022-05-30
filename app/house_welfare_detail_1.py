@@ -19,7 +19,7 @@ def house_welfare__detail_1_home():
     return "house_welfare_detail_1"
 
 # ----- selection_criteria ------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail_1.route("/selection_criteria", methods=['GET', 'POST'])
+@blue_house_welfare_detail_1.route("/selection_criteria", methods=['POST'])
 def show_selection_criteria():
     body = request.get_json()
     
@@ -70,7 +70,7 @@ def show_selection_criteria():
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 
-@blue_house_welfare_detail_1.route("/lease_money_level", methods=['GET', 'POST'])
+@blue_house_welfare_detail_1.route("/lease_money_level", methods=['POST'])
 def lease_money_level():
     body = request.get_json()
     
@@ -117,7 +117,7 @@ def lease_money_level():
     return jsonify(res)
 
 
-@blue_house_welfare_detail_1.route("/house_type", methods=['GET', 'POST'])
+@blue_house_welfare_detail_1.route("/house_type", methods=['POST'])
 def show_house_type():
     body = request.get_json()
     
@@ -169,7 +169,7 @@ def show_house_type():
     return jsonify(res)
 
 
-@blue_house_welfare_detail_1.route("/special_supply", methods=['GET', 'POST'])
+@blue_house_welfare_detail_1.route("/special_supply", methods=['POST'])
 def show_special_supply():
     body = request.get_json()
     
@@ -235,7 +235,7 @@ def show_special_supply():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_1.route("/sales_conversion", methods=['GET', 'POST'])
+@blue_house_welfare_detail_1.route("/sales_conversion", methods=['POST'])
 def show_sales_conversion():
     body = request.get_json()
     

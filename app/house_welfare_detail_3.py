@@ -19,7 +19,7 @@ blue_house_welfare_detail_3 = Blueprint("house_welfare_detail_3", __name__, url_
 def house_welfare__detail_3_home():
     return "house_welfare_detail_3"
 
-@blue_house_welfare_detail_3.route("/intro", methods=['GET', 'POST'])
+@blue_house_welfare_detail_3.route("/intro", methods=['POST'])
 def show_intro():
     body = request.get_json()
     
@@ -116,7 +116,7 @@ def show_intro():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_3.route("/max_term", methods=['GET', 'POST'])
+@blue_house_welfare_detail_3.route("/max_term", methods=['POST'])
 def show_max_term():
     body = request.get_json()
     
@@ -173,7 +173,7 @@ def show_max_term():
         
     return jsonify(res)
 
-@blue_house_welfare_detail_3.route("/detail_info", methods=['GET', 'POST'])
+@blue_house_welfare_detail_3.route("/detail_info", methods=['POST'])
 def show_detail_info():
     body = request.get_json()
     

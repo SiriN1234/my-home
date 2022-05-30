@@ -19,7 +19,7 @@ blue_house_welfare_detail_4 = Blueprint("house_welfare_detail_4", __name__, url_
 def house_welfare__detail_4_home():
     return "house_welfare_detail_4"
 
-@blue_house_welfare_detail_4.route("/show_supply", methods=['GET', 'POST'])
+@blue_house_welfare_detail_4.route("/show_supply", methods=['POST'])
 def show_supply():
     body = request.get_json()
     

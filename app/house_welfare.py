@@ -70,7 +70,7 @@ def house_welfare_info_des():
 # --------------------------------------------------------------------------------------------------------------
 
 # ----- house_welfare/info -------------------------------------------------------------------------------------
-@blue_house_welfare.route("/info", methods=['GET', 'POST'])
+@blue_house_welfare.route("/info", methods=['POST'])
 def housing_welfare():
     req = request.get_json()
     

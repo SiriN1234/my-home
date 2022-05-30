@@ -18,7 +18,7 @@ blue_house_welfare_detail_2 = Blueprint("house_welfare_detail_2", __name__, url_
 def house_welfare__detail_2_home():
     return "house_welfare_detail_2"
 
-@blue_house_welfare_detail_2.route("/move_in_target", methods=['GET', 'POST'])
+@blue_house_welfare_detail_2.route("/move_in_target", methods=['POST'])
 def show_move_in_target():
     body = request.get_json()
     
@@ -114,7 +114,7 @@ def show_move_in_target():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_2.route("/target_house", methods=['GET', 'POST'])
+@blue_house_welfare_detail_2.route("/target_house", methods=['POST'])
 def show_target_house():
     body = request.get_json()
     
@@ -196,7 +196,7 @@ def show_target_house():
     return jsonify(res)
 
 
-@blue_house_welfare_detail_2.route("/support_limit", methods=['GET', 'POST'])
+@blue_house_welfare_detail_2.route("/support_limit", methods=['POST'])
 def show_support_limit():
     body = request.get_json()
     
@@ -246,7 +246,7 @@ def show_support_limit():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_2.route("/lease_condition", methods=['GET', 'POST'])
+@blue_house_welfare_detail_2.route("/lease_condition", methods=['POST'])
 def show_lease_condition():
     body = request.get_json()
     
@@ -300,7 +300,7 @@ def show_lease_condition():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_2.route("/lease_term", methods=['GET', 'POST'])
+@blue_house_welfare_detail_2.route("/lease_term", methods=['POST'])
 def show_lease_term():
     body = request.get_json()
     

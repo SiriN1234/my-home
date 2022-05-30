@@ -20,7 +20,7 @@ def house_welfare__detail_home():
     return "house_welfare_detail"
 
 # ----- moving_in_qual_ranking --------------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/moving_in_qual_ranking", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/moving_in_qual_ranking", methods=['POST'])
 def show_moving_in_qual_ranking():
     body = request.get_json()
     
@@ -141,7 +141,7 @@ def show_moving_in_qual_ranking():
 # -------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------ apply_step -------------------------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/apply_step", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/apply_step", methods=['POST'])
 def show_apply_step():
     body = request.get_json()
     
@@ -288,7 +288,7 @@ def show_apply_step():
 # -------------------------------------------------------------------------------------------------------------------------------------
 
 # ----- general_supply_selection -------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/general_supply_selection", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/general_supply_selection", methods=['POST'])
 def show_general_supply_selection():
     body = request.get_json()
     
@@ -370,7 +370,7 @@ def show_general_supply_selection():
 # ----------------------------------------------------------------------------------------------------------------------------------
 
 # ----- income_asset_how -----------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/income_asset_how", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/income_asset_how", methods=['POST'])
 def show_income_asset_how():
     body = request.get_json()
     
@@ -440,7 +440,7 @@ def show_income_asset_how():
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
 # ----- moving_in_qual -----------------------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/moving_in_qual", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/moving_in_qual", methods=['POST'])
 def show_moving_in_qual():
     body = request.get_json()
     
@@ -608,7 +608,7 @@ def show_moving_in_qual():
 #----------------------------------------------------------------------------------------------------------------------
 
 # ----- welfare selection ----------------------------------------------------------------------------------------------
-@blue_house_welfare_detail.route("/selection", methods=['GET', 'POST'])
+@blue_house_welfare_detail.route("/selection", methods=['POST'])
 def blue_house_welfare_detail_selection():
     body = request.get_json()
     
