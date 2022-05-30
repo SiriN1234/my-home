@@ -10,6 +10,8 @@ def main_menu_check():
 @blue_main_menu.route("/main", methods=['POST'])
 def main_menu_1():
     body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
     
     res = {
   "version": "2.0",
