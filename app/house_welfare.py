@@ -24,6 +24,8 @@ def house_welfare_home():
 def house_welfare_info_des():
     body = request.get_json()
     
+    
+    
     welfare_info_house = pd.read_csv("./service_guide_data/welfare_info/housing_welfare_service.csv")
     
     welfare_dict = {'통합공공임대주택' : 0, '영구임대주택' : 1, '행복주택': 2, 
@@ -72,7 +74,9 @@ def house_welfare_info_des():
 # ----- house_welfare/info -------------------------------------------------------------------------------------
 @blue_house_welfare.route("/info", methods=['POST'])
 def housing_welfare():
-    req = request.get_json()
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
     
     welfare_info_house = pd.read_csv("./service_guide_data/welfare_info/housing_welfare_service.csv")
     
