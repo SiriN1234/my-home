@@ -8,6 +8,10 @@ import random
 app = Blueprint("region_list", __name__)
 
 
+# 임대주택 목록 출력하는 카드
+# 1p 서울, 경기, 인천, 대전, 세종, 부산, 울산, 대구, 광주
+# 2p 강원도, 충청남도, 충청북도, 경상남도, 경상북도, 전라남도, 전라북도, 제주특별자치도
+
 
 ###################################################################
 # description : 카드에 들어갈 텍스트
@@ -27,14 +31,9 @@ app = Blueprint("region_list", __name__)
 ###################################################################
 
 
-# 임대주택 목록 출력하는 카드
-# 1p 서울, 경기, 인천, 대전, 세종, 부산, 울산, 대구, 광주
-# 2p 강원도, 충청남도, 충청북도, 경상남도, 경상북도, 전라남도, 전라북도, 제주특별자치도
-
-
 ###################################################################
 # thumbnail 불러오기
-thumbnail = pd.read_csv("./app/data/Thumbnail.csv")
+thumbnail = pd.read_csv("./app/crawl/region_dataThumbnail.csv")
 thumbnail_arr = []
 for i in range(10) :
     thumbnail_arr.append(thumbnail.iloc[i]['thumbnail'])
@@ -50,8 +49,8 @@ def seoul():
 
     ###########################################################
     # csv 파일 불러오기
-    seoul_notice = pd.read_csv("./app/data/Seoul_notice.csv")
-    seoul_url = pd.read_csv("./app/data/Seoul_url.csv")
+    seoul_notice = pd.read_csv("./app/crawl/region_dataSeoul_notice.csv")
+    seoul_url = pd.read_csv("./app/crawl/region_dataSeoul_url.csv")
 
     # 값을 넣을 배열 선언
     seoul_notice_arr = [] # description에 들어갈 값
@@ -236,8 +235,8 @@ def gyeonggiDo():
 
     ###########################################################
     # csv 파일 불러오기
-    gyeonggi_notice = pd.read_csv("./app/data/Gyeonggi_notice.csv")
-    gyeonggi_url = pd.read_csv("./app/data/Gyeonggi_url.csv")
+    gyeonggi_notice = pd.read_csv("./app/crawl/region_dataGyeonggi_notice.csv")
+    gyeonggi_url = pd.read_csv("./app/crawl/region_dataGyeonggi_url.csv")
 
     # 값을 넣을 배열 선언
     gyeonggi_notice_arr = [] # description에 들어갈 값
@@ -422,8 +421,8 @@ def incheon():
 
     ###########################################################
     # csv 파일 불러오기
-    incheon_notice = pd.read_csv("./app/data/Incheon_notice.csv")
-    incheon_url = pd.read_csv("./app/data/Incheon_url.csv")
+    incheon_notice = pd.read_csv("./app/crawl/region_dataIncheon_notice.csv")
+    incheon_url = pd.read_csv("./app/crawl/region_dataIncheon_url.csv")
 
     # 값을 넣을 배열 선언
     incheon_notice_arr = [] # description에 들어갈 값
@@ -608,8 +607,8 @@ def daejeon():
 
     ###########################################################
     # csv 파일 불러오기
-    daejeon_notice = pd.read_csv("./app/data/Daejeon_notice.csv")
-    daejeon_url = pd.read_csv("./app/data/Daejeon_url.csv")
+    daejeon_notice = pd.read_csv("./app/crawl/region_dataDaejeon_notice.csv")
+    daejeon_url = pd.read_csv("./app/crawl/region_dataDaejeon_url.csv")
 
     # 값을 넣을 배열 선언
     daejeon_notice_arr = [] # description에 들어갈 값
@@ -795,8 +794,8 @@ def sejong():
 
     ###########################################################
     # csv 파일 불러오기
-    sejong_notice = pd.read_csv("./app/data/Sejong_notice.csv")
-    sejong_url = pd.read_csv("./app/data/Sejong_url.csv")
+    sejong_notice = pd.read_csv("./app/crawl/region_dataSejong_notice.csv")
+    sejong_url = pd.read_csv("./app/crawl/region_dataSejong_url.csv")
 
     # 값을 넣을 배열 선언
     sejong_notice_arr = [] # description에 들어갈 값
@@ -981,8 +980,8 @@ def busan():
     
     ###########################################################
     # csv 파일 불러오기
-    busan_notice = pd.read_csv("./app/data/Busan_notice.csv")
-    busan_url = pd.read_csv("./app/data/Busan_url.csv")
+    busan_notice = pd.read_csv("./app/crawl/region_dataBusan_notice.csv")
+    busan_url = pd.read_csv("./app/crawl/region_dataBusan_url.csv")
 
     # 값을 넣을 배열 선언
     busan_notice_arr = [] # description에 들어갈 값
@@ -1167,8 +1166,8 @@ def ulsan():
 
     ###########################################################
     # csv 파일 불러오기
-    ulsan_notice = pd.read_csv("./app/data/Ulsan_notice.csv")
-    ulsan_url = pd.read_csv("./app/data/Ulsan_url.csv")
+    ulsan_notice = pd.read_csv("./app/crawl/region_dataUlsan_notice.csv")
+    ulsan_url = pd.read_csv("./app/crawl/region_dataUlsan_url.csv")
 
     # 값을 넣을 배열 선언
     ulsan_notice_arr = [] # description에 들어갈 값
@@ -1354,8 +1353,8 @@ def daegu():
 
     ###########################################################
     # csv 파일 불러오기
-    daegu_notice = pd.read_csv("./app/data/Daegu_notice.csv")
-    daegu_url = pd.read_csv("./app/data/Daegu_url.csv")
+    daegu_notice = pd.read_csv("./app/crawl/region_dataDaegu_notice.csv")
+    daegu_url = pd.read_csv("./app/crawl/region_dataDaegu_url.csv")
 
     # 값을 넣을 배열 선언
     daegu_notice_arr = [] # description에 들어갈 값
@@ -1541,8 +1540,8 @@ def gwangju():
 
     ###########################################################
     # csv 파일 불러오기
-    gwangju_notice = pd.read_csv("./app/data/Gwangju_notice.csv")
-    gwangju_url = pd.read_csv("./app/data/Gwangju_url.csv")
+    gwangju_notice = pd.read_csv("./app/crawl/region_dataGwangju_notice.csv")
+    gwangju_url = pd.read_csv("./app/crawl/region_dataGwangju_url.csv")
 
     # 값을 넣을 배열 선언
     gwangju_notice_arr = [] # description에 들어갈 값
@@ -1727,8 +1726,8 @@ def gangwonDo():
 
     ###########################################################
     # csv 파일 불러오기
-    gangwon_notice = pd.read_csv("./app/data/Gangwon_notice.csv")
-    gangwon_url = pd.read_csv("./app/data/Gangwon_url.csv")
+    gangwon_notice = pd.read_csv("./app/crawl/region_dataGangwon_notice.csv")
+    gangwon_url = pd.read_csv("./app/crawl/region_dataGangwon_url.csv")
 
     # 값을 넣을 배열 선언
     gangwon_notice_arr = [] # description에 들어갈 값
@@ -1913,8 +1912,8 @@ def chungcheongNamdo():
     
     ###########################################################
     # csv 파일 불러오기
-    chungnam_notice = pd.read_csv("./app/data/Chungnam_notice.csv")
-    chungnam_url = pd.read_csv("./app/data/Chungnam_url.csv")
+    chungnam_notice = pd.read_csv("./app/crawl/region_dataChungnam_notice.csv")
+    chungnam_url = pd.read_csv("./app/crawl/region_dataChungnam_url.csv")
 
     # 값을 넣을 배열 선언
     chungnam_notice_arr = [] # description에 들어갈 값
@@ -2099,8 +2098,8 @@ def chungcheongBukdo():
 
     ###########################################################
     # csv 파일 불러오기
-    chungbuk_notice = pd.read_csv("./app/data/Chungbuk_notice.csv")
-    chungbuk_url = pd.read_csv("./app/data/Chungbuk_url.csv")
+    chungbuk_notice = pd.read_csv("./app/crawl/region_dataChungbuk_notice.csv")
+    chungbuk_url = pd.read_csv("./app/crawl/region_dataChungbuk_url.csv")
 
     # 값을 넣을 배열 선언
     chungbuk_notice_arr = [] # description에 들어갈 값
@@ -2286,8 +2285,8 @@ def gyeongsangNamdo():
 
     ###########################################################
     # csv 파일 불러오기
-    gyeongnam_notice = pd.read_csv("./app/data/Gyeongnam_notice.csv")
-    gyeongnam_url = pd.read_csv("./app/data/Gyeongnam_url.csv")
+    gyeongnam_notice = pd.read_csv("./app/crawl/region_dataGyeongnam_notice.csv")
+    gyeongnam_url = pd.read_csv("./app/crawl/region_dataGyeongnam_url.csv")
 
     # 값을 넣을 배열 선언
     gyeongnam_notice_arr = [] # description에 들어갈 값
@@ -2474,8 +2473,8 @@ def gyeongsangBukdo():
 
     ###########################################################
     # csv 파일 불러오기
-    gyeongbuk_notice = pd.read_csv("./app/data/Gyeongbuk_notice.csv")
-    gyeongbuk_url = pd.read_csv("./app/data/Gyeongbuk_url.csv")
+    gyeongbuk_notice = pd.read_csv("./app/crawl/region_dataGyeongbuk_notice.csv")
+    gyeongbuk_url = pd.read_csv("./app/crawl/region_dataGyeongbuk_url.csv")
 
     # 값을 넣을 배열 선언
     gyeongbuk_notice_arr = [] # description에 들어갈 값
@@ -2660,8 +2659,8 @@ def jeollaNamdo():
 
     ###########################################################
     # csv 파일 불러오기
-    jeonnam_notice = pd.read_csv("./app/data/Jeonnam_notice.csv")
-    jeonnam_url = pd.read_csv("./app/data/Jeonnam_url.csv")
+    jeonnam_notice = pd.read_csv("./app/crawl/region_dataJeonnam_notice.csv")
+    jeonnam_url = pd.read_csv("./app/crawl/region_dataJeonnam_url.csv")
 
     # 값을 넣을 배열 선언
     jeonnam_notice_arr = [] # description에 들어갈 값
@@ -2848,8 +2847,8 @@ def jeollaBukdo():
 
     ###########################################################
     # csv 파일 불러오기
-    jeonbuk_notice = pd.read_csv("./app/data/Jeonbuk_notice.csv")
-    jeonbuk_url = pd.read_csv("./app/data/Jeonbuk_url.csv")
+    jeonbuk_notice = pd.read_csv("./app/crawl/region_dataJeonbuk_notice.csv")
+    jeonbuk_url = pd.read_csv("./app/crawl/region_dataJeonbuk_url.csv")
 
     # 값을 넣을 배열 선언
     jeonbuk_notice_arr = [] # description에 들어갈 값
@@ -3035,8 +3034,8 @@ def jeju():
 
     ###########################################################
     # csv 파일 불러오기
-    jeju_notice = pd.read_csv("./app/data/Jeju_notice.csv")
-    jeju_url = pd.read_csv("./app/data/Jeju_url.csv")
+    jeju_notice = pd.read_csv("./app/crawl/region_dataJeju_notice.csv")
+    jeju_url = pd.read_csv("./app/crawl/region_dataJeju_url.csv")
 
     # 값을 넣을 배열 선언
     jeju_notice_arr = [] # description에 들어갈 값
