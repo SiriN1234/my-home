@@ -65,165 +65,51 @@ def seoul():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
     
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": seoul_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": seoul_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": seoul_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    
+    for i in range(len(seoul_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": seoul_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": seoul_url_arr[i]
+                            }
+                        ]
+                    })
+    
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+        
 
-    return responseBody
-
+    return jsonify(res)
 
 
 # 경기도 임대주택 목록
@@ -250,165 +136,51 @@ def gyeonggiDo():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": gyeonggi_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeonggi_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeonggi_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(gyeonggi_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": gyeonggi_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": gyeonggi_url_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
 
 
 
@@ -437,167 +209,52 @@ def incheon():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": incheon_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": incheon_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": incheon_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(incheon_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": incheon_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": incheon_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
+    
+    
 # 대전 임대주택 목록
 @app.route('/api/daejeon', methods=['POST'])
 def daejeon():
@@ -622,166 +279,51 @@ def daejeon():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": daejeon_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daejeon_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daejeon_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(daejeon_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": daejeon_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": daejeon_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
 
 
 
@@ -810,167 +352,52 @@ def sejong():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": sejong_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": sejong_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": sejong_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(sejong_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": sejong_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": sejong_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
+    
+    
 # 부산 임대주택 목록
 @app.route('/api/busan', methods=['POST'])
 def busan():
@@ -996,167 +423,52 @@ def busan():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################    
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": busan_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": busan_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": busan_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(busan_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": busan_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": busan_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
+    
+    
 # 울산 임대주택 목록
 @app.route('/api/ulsan', methods=['POST'])
 def ulsan():
@@ -1181,167 +493,51 @@ def ulsan():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": ulsan_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": ulsan_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": ulsan_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(ulsan_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": ulsan_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": ulsan_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
 
 
 # 대구 임대주택 목록
@@ -1369,168 +565,52 @@ def daegu():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": daegu_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": daegu_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": daegu_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(daegu_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": daegu_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": daegu_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
-
+        })
+    
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    
+    return jsonify(res)
+    
+    
 # 광주 임대주택 목록
 @app.route('/api/gwangju', methods=['POST'])
 def gwangju():
@@ -1556,164 +636,48 @@ def gwangju():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": gwangju_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gwangju_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gwangju_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(gwangju_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": gwangju_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": gwangju_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
             "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
 
 
 
@@ -1742,167 +706,50 @@ def gangwonDo():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": gangwon_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gangwon_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gangwon_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(gangwon_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": gangwon_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": gangwon_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
+    
+    
 # 충청남도 임대주택 목록
 @app.route('/api/chungcheongNamdo', methods=['POST'])
 def chungcheongNamdo():
@@ -1928,166 +775,49 @@ def chungcheongNamdo():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": chungnam_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungnam_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungnam_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(chungnam_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": chungnam_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": chungnam_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
+    
 
 # 충청북도 임대주택 목록
 @app.route('/api/chungcheongBukdo', methods=['POST'])
@@ -2114,168 +844,50 @@ def chungcheongBukdo():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": chungbuk_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": chungbuk_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(chungbuk_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": chungbuk_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": chungbuk_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
-
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
+    
+    
 # 경상남도 임대주택 목록
 @app.route('/api/gyeongsangNamdo', methods=['POST'])
 def gyeongsangNamdo():
@@ -2300,168 +912,49 @@ def gyeongsangNamdo():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": gyeongnam_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongnam_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(gyeongnam_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": gyeongnam_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": gyeongnam_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
 
 
 # 경상북도 임대주택 목록
@@ -2488,168 +981,51 @@ def gyeongsangBukdo():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": gyeongbuk_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": gyeongbuk_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(gyeongbuk_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": gyeongbuk_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": gyeongbuk_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
 
-    return responseBody
-
-
-
+    
 # 전라남도 임대주택 목록
 @app.route('/api/jeollaNamdo', methods=['POST'])
 def jeollaNamdo():
@@ -2674,169 +1050,51 @@ def jeollaNamdo():
     # imageUrl에 들어갈 값 랜덤으로 섞기
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
-
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": jeonnam_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonnam_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(jeonnam_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": jeonnam_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": jeonnam_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
 
-    return responseBody
-
-
-
-
+    
 
 # 전라북도 임대주택 목록
 @app.route('/api/jeollaBukdo', methods=['POST'])
@@ -2863,168 +1121,50 @@ def jeollaBukdo():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": jeonbuk_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeonbuk_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(jeonbuk_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": jeonbuk_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": jeonbuk_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
-
-
-
-
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
+    
+    
 # 제주특별자치도 임대주택 목록
 @app.route('/api/jeju', methods=['POST'])
 def jeju():
@@ -3050,161 +1190,46 @@ def jeju():
     rand_thumb = random.sample(thumbnail_arr, 10)
     ###########################################################
 
-    responseBody = {
-        "version": "2.0",
-        "template": {
-        "outputs": [
-            {
-                "carousel": {
+    res= {
+    "version": "2.0",
+    "template": {
+        "outputs": [{
+            "carousel" :{
                 "type": "basicCard",
-                "items": [
-                    {
-                        "description": jeju_notice_arr[0],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[0]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[0]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[1],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[1]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[1]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[2],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[2]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[2]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[3],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[3]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[3]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[4],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[4]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[4]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[5],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[5]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[5]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[6],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[6]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[6]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[7],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[7]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[7]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[8],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[8]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[8]
-                            }
-                        ]
-                    },
-                    {
-                        "description": jeju_notice_arr[9],
-                        "thumbnail": {
-                            "imageUrl": rand_thumb[9]
-                        },
-                        "buttons": [
-                            {
-                                "action":  "webLink",
-                                "label": "자세히 보기",
-                                "webLinkUrl": jeju_url_arr[9]
-                            }
-                        ]
-                    }
-                ]
+                "items": []
             }
-        }
-        ],
-        "quickReplies": [
-        {
+        }]
+        }}
+    
+    tmp_quickReplies_set = {"quickReplies": []}
+    
+    for i in range(len(jeju_notice_arr)):
+        res['template']['outputs'][0]['carousel']['items'].append({
+                        "description": jeju_notice_arr[i],
+                        "thumbnail": {
+                            "imageUrl": rand_thumb[i]
+                        },
+                        "buttons": [
+                            {
+                                "action":  "webLink",
+                                "label": "자세히 보기",
+                                "webLinkUrl": jeju_notice_arr[i]
+                            }
+                        ]
+                    })
+
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "지역 목록으로 돌아가기",
             "action": "block",
-            "blockId": "6281c37d45b5fc3106460080?scenarioId=6281c2009ac8ed784416bc1a"
-        },
-        {
+            "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+        })
+    tmp_quickReplies_set['quickReplies'].append({
             "label": "처음으로 돌아가기",
             "action": "block",
             "blockId": "627b293404a7d7314aeb7b0d?scenarioId=627b131e9ac8ed7844165d72"
-        }
-        ]
-        }
-    }
-
-    return responseBody
+        })
+    
+    res['template'].update(tmp_quickReplies_set)
+    
+    return jsonify(res)
+    

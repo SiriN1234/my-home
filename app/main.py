@@ -4,9 +4,6 @@ import pandas as pd
 import csv
 import random
 
-from app import test_text as tt
-
-from . import bl_test
 from . import region_list
 from . import house_welfare
 from . import main_menu
