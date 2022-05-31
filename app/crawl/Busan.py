@@ -64,7 +64,6 @@ for i in range(len(gangwon_area_list)):
 df = pd.DataFrame((zip(gangwon_title_list, gangwon_status_list, gangwon_area_list, gangwon_name_list, gangwon_re_date_list, gangwon_pre_date_list, gangwon_corporation_list)),    
                    columns = ['title', 'status', 'area', 'name', 're_date', 'pre_date', 'corporation'])
 
-print(df)
 
 df.to_csv('./region_data/Busan_notice.csv', index = False, encoding='utf-8')
 
@@ -81,10 +80,10 @@ for i in myhome_titles:
     num = str(detail_url) + str(num1) + chr(38) + 'searchSe=R'
     a.append(num)
     b += 1
-    print(b, num1)
 
 
 df = pd.DataFrame((a), columns = ['url'])
-print(df)
 
 df.to_csv('./region_data/Busan_url.csv', index = False, encoding='utf-8')
+
+print("부산 완료")
