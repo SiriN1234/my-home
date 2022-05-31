@@ -71,7 +71,7 @@ Link : [마이홈 포털](https://www.myhome.go.kr/hws/portal/main/getMgtMainPag
 # 파일 설명
 ***
 
-main : 메인, Blueprint를 사용   
+main : Blueprint 사용   
 main_menu : 메인 텍스트 블록을 출력   
 house_welfare : 주택복지 목록 블록 출력   
 house_welfare_detail_n : 주택복지 상세 블록 출력      
