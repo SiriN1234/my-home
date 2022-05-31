@@ -28,7 +28,6 @@ app.register_blueprint(house_welfare_detail_4.blue_house_welfare_detail_4)
 
 
 
-
 # 헬로우 월드
 @app.route('/')
 def hello_world():
