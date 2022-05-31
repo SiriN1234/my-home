@@ -83,6 +83,6 @@ for i in myhome_titles:
 
 df = pd.DataFrame((a), columns = ['url'])
 
-df.to_csv('./region_data/Gyengnam_url.csv', index = False, encoding='utf-8')
+df.to_csv('./region_data/Gyeongnam_url.csv', index = False, encoding='utf-8')
 
-print("경남 완료")
+print("10. 경남 완료")

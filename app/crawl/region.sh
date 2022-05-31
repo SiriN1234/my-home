@@ -6,8 +6,8 @@ python Daejeon.py
 python Gangwon.py
 python Gwangju.py
 python Gyeongbuk.py
-python Gyeongnam.py
 python Gyeonggi.py
+python Gyeongnam.py
 python Incheon.py
 python Jeju.py
 python Jeonbuk.py

@@ -85,4 +85,4 @@ df = pd.DataFrame((a), columns = ['url'])
 
 df.to_csv('./region_data/Jeonbuk_url.csv', index = False, encoding='utf-8')
 
-print("전북 완료")
+print("13. 전북 완료")

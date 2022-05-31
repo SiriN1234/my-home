@@ -64,7 +64,7 @@ df = pd.DataFrame((zip(chung_cheong_title_list, chung_cheong_status_list, chung_
                    columns = ['title', 'status', 'area', 'name', 're_date', 'pre_date', 'corporation'])
 
 
-df.to_csv('./region_data/Chung_cheong_notice.csv', index = False, encoding='utf-8')
+df.to_csv('./region_data/Chungbuk_notice.csv', index = False, encoding='utf-8')
 
 
 myhome_titles = driver.find_elements_by_css_selector(".al > a")
@@ -83,6 +83,6 @@ for i in myhome_titles:
 
 df = pd.DataFrame((a), columns = ['url'])
 
-df.to_csv('./region_data/Chung_cheong_url.csv', index = False, encoding='utf-8')
+df.to_csv('./region_data/Chungbuk_url.csv', index = False, encoding='utf-8')
 
-print("충북 완료")
+print("2. 충북 완료")
