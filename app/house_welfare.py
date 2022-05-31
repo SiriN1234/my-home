@@ -7,7 +7,7 @@ service_code = {'통합공공임대주택' : 'RH112', '영구임대주택' : 'RH
                 '행복주택' : 'RH108', '공공지원민간임대주택' : 'RH109', '주거복지동주택' : 'RH110',
                 '공공기숙사' : 'RH111'}
 
-URL = "https://m.myhome.go.kr/hws/portal/cont/selectContRentalView.do#guide="
+URL = "https://www.myhome.go.kr/hws/portal/cont/selectContRentalView.do#guide="
 # ------------------------------------------------------------------------------------------------------
 # ----- house_welfare blueprint set ----------------------------------------------------------------------------
 blue_house_welfare = Blueprint("house_welfare", __name__, url_prefix='/house_welfare')
