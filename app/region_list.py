@@ -33,7 +33,7 @@ app = Blueprint("region_list", __name__)
 
 ###################################################################
 # thumbnail 불러오기
-thumbnail = pd.read_csv("./app/crawl/region_data/Thumbnail.csv")
+thumbnail = pd.read_csv("./app/crawl/region_data/thumbnail/Thumbnail.csv")
 thumbnail_arr = []
 for i in range(10) :
     thumbnail_arr.append(thumbnail.iloc[i]['thumbnail'])
