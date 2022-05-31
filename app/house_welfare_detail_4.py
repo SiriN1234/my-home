@@ -94,7 +94,7 @@ def show_supply():
         tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
                                                      "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "입주 자격·선정순위", "action": "block", 
-                                                     "blockId": "628b412f299dbd02ee7a6666", "extra": {"welfare_type" : welfare_type}})
+                                                     "blockId": "6294624661ca766b95bc3b50?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
         tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
                                                      "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
