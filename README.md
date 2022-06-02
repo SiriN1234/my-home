@@ -69,7 +69,6 @@
 - simpleText 사용
 - quickReplies로 상세정보를 확인할 수 있음   
 <img height = "400" src = "./img/hw_info.jpg">   
-
     + 상세정보에 들어가면 소개, 입주자격, 입주절차 등 여러개의 quickReplies로 구성이 됨
     + 버튼을 누르면 관련된 simpleText가 나오고 좀 더 자세한 설명은 url로 확인할 수 있음   
   <img height = "400" src = "./img/hw_info1.jpg">   
