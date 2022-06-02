@@ -232,7 +232,7 @@ def incheon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": incheon_notice_arr[i]
+                                "webLinkUrl": incheon_url_arr[i]
                             }
                         ]
                     })
@@ -303,7 +303,7 @@ def daejeon():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": daejeon_notice_arr[i]
+                                "webLinkUrl": daejeon_url_arr[i]
                             }
                         ]
                     })
@@ -375,7 +375,7 @@ def sejong():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": sejong_notice_arr[i]
+                                "webLinkUrl": sejong_url_arr[i]
                             }
                         ]
                     })
@@ -446,7 +446,7 @@ def busan():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": busan_notice_arr[i]
+                                "webLinkUrl": busan_url_arr[i]
                             }
                         ]
                     })
@@ -517,7 +517,7 @@ def ulsan():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": ulsan_notice_arr[i]
+                                "webLinkUrl": ulsan_url_arr[i]
                             }
                         ]
                     })
@@ -588,7 +588,7 @@ def daegu():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": daegu_notice_arr[i]
+                                "webLinkUrl": daegu_url_arr[i]
                             }
                         ]
                     })
@@ -659,7 +659,7 @@ def gwangju():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": gwangju_notice_arr[i]
+                                "webLinkUrl": gwangju_url_arr[i]
                             }
                         ]
                     })
@@ -729,7 +729,7 @@ def gangwonDo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": gangwon_notice_arr[i]
+                                "webLinkUrl": gangwon_url_arr[i]
                             }
                         ]
                     })
@@ -798,7 +798,7 @@ def chungcheongNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": chungnam_notice_arr[i]
+                                "webLinkUrl": chungnam_url_arr[i]
                             }
                         ]
                     })
@@ -867,7 +867,7 @@ def chungcheongBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": chungbuk_notice_arr[i]
+                                "webLinkUrl": chungbuk_url_arr[i]
                             }
                         ]
                     })
@@ -936,7 +936,7 @@ def gyeongsangNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": gyeongnam_notice_arr[i]
+                                "webLinkUrl": gyeongnam_url_arr[i]
                             }
                         ]
                     })
@@ -1005,7 +1005,7 @@ def gyeongsangBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": gyeongbuk_notice_arr[i]
+                                "webLinkUrl": gyeongbuk_url_arr[i]
                             }
                         ]
                     })
@@ -1074,7 +1074,7 @@ def jeollaNamdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": jeonnam_notice_arr[i]
+                                "webLinkUrl": jeonnam_url_arr[i]
                             }
                         ]
                     })
@@ -1144,7 +1144,7 @@ def jeollaBukdo():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": jeonbuk_notice_arr[i]
+                                "webLinkUrl": jeonbuk_url_arr[i]
                             }
                         ]
                     })
@@ -1213,7 +1213,7 @@ def jeju():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": jeju_notice_arr[i]
+                                "webLinkUrl": jeju_url_arr[i]
                             }
                         ]
                     })
