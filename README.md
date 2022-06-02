@@ -108,3 +108,7 @@ house_welfare : 주택복지 목록 블록 출력
 house_welfare_detail_n : 주택복지 상세 블록 출력      
 region_list : 공공주택 목록 블록 출력   
 crawl 폴더 : 크롤링 코드 / 데이터
+deploy.sh : 배포 배치 파일
+```
+./deploy.sh
+```
