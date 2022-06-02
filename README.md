@@ -11,7 +11,7 @@
 - Python 3.9.7
   + pandas 1.3.4
   + Flask 1.1.2   
-- Selenium 4.1.5
+  + Selenium 4.1.5
 - Heroku/Github   
 
 참고 : [Heroku 연동 방법](https://rain-grouse-1fe.notion.site/Heroku-17b646987a91459d9736347d73c4c945)   
