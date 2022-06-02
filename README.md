@@ -1,7 +1,11 @@
-# 개발 환경
+# 개발 환경 / 라이브러리
 ***
 
-Python 3.9.7, Flask, Heroku/Github
+- Python 3.9.7
+  + pandas 1.3.4
+  + Flask 1.1.2   
+
+- Heroku/Github   
 
 
 

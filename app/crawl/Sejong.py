@@ -47,7 +47,7 @@ for i in range(10):
         re_date = driver.find_element_by_xpath('//*[@id="schTbody"]/tr[{num}]/td[6]'.format(num=i+1)).text
         pre_date = driver.find_element_by_xpath('//*[@id="schTbody"]/tr[{num}]/td[7]'.format(num=i+1)).text
         corporation = driver.find_element_by_xpath('//*[@id="schTbody"]/tr[{num}]/td[8]/a'.format(num=i+1)).text
-
+        
         sejong_title_list.append(title)
         sejong_status_list.append(status)
         sejong_area_list.append(area)
