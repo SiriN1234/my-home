@@ -9,7 +9,7 @@ r_list_1 = region_list.region_list_1
 r_list_2 = region_list.region_list_2
 region_eng = region_list.region_eng
 
-thumbnail = pd.read_csv("./data/region_data/thumbnail/Thumbnail.csv")
+thumbnail = pd.read_csv("./app/crawl/region_data/thumbnail/Thumbnail.csv")
 
 thumbnail_arr = []
 
