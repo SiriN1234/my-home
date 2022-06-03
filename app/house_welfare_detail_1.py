@@ -2,15 +2,16 @@ from flask import Blueprint
 from flask import Flask, request, jsonify
 import pandas as pd
 import json
-
+from . import reply
+from . import dict_code
+from . import url_list
 # ------------------------------------------------------------------------------------------------------
-service_code = {'통합공공임대주택' : 'RH112', '영구임대주택' : 'RH103', '국민임대주택' : 'RH104',
-                '장기전세주택' : 'RH105', '공공임대주택' : 'RH106', '전세임대주택' : 'RH107',
-                '행복주택' : 'RH108', '공공지원민간임대주택' : 'RH109', '주거복지동주택' : 'RH110',
-                '공공기숙사' : 'RH111'}
+service_code = dict_code.service_code
+reply = reply.reply
 
-URL = "https://www.myhome.go.kr/hws/portal/cont/selectContRentalView.do#guide="
+URL = url_list.URL
 # ------------------------------------------------------------------------------------------------------
+
 
 blue_house_welfare_detail_1 = Blueprint("house_welfare_detail_1", __name__, url_prefix='/house_welfare_detail_1')
 
@@ -19,7 +20,7 @@ def house_welfare__detail_1_home():
     return "house_welfare_detail_1"
 
 # ----- selection_criteria ------------------------------------------------------------------------------------------------------
-@blue_house_welfare_detail_1.route("/selection_criteria", methods=['POST'])
+@blue_house_welfare_detail_1.route("/selection_criteria", methods=['GET', 'POST'])
 def show_selection_criteria():
     body = request.get_json()
     
@@ -48,16 +49,13 @@ def show_selection_criteria():
                                                      "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     
     if welfare_type == '국민임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "소득·자산 산정방법", "action": "block", 
-                                                     "blockId": "6294622f61ca766b95bc3b48?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "일반공급 자격·선정순위", "action": "block", 
-                                                     "blockId": "62946235603909400c453415?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
     else:
         pass
 
-        
-    tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block", 
@@ -70,7 +68,7 @@ def show_selection_criteria():
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 
-@blue_house_welfare_detail_1.route("/lease_money_level", methods=['POST'])
+@blue_house_welfare_detail_1.route("/lease_money_level", methods=['GET', 'POST'])
 def lease_money_level():
     body = request.get_json()
     
@@ -103,10 +101,13 @@ def lease_money_level():
     
     
     if welfare_type != '장기전세주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block",
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
     else:
         pass
+    
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
@@ -117,7 +118,7 @@ def lease_money_level():
     return jsonify(res)
 
 
-@blue_house_welfare_detail_1.route("/house_type", methods=['POST'])
+@blue_house_welfare_detail_1.route("/house_type", methods=['GET', 'POST'])
 def show_house_type():
     body = request.get_json()
     
@@ -150,15 +151,13 @@ def show_house_type():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     if welfare_type == '공공임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자 선정순위", "action": "block", 
-                                                     "blockId": "6294624661ca766b95bc3b50?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "특별공급", "action": "block", 
-                                                     "blockId": "6294626861ca766b95bc3b5c?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "분양전환", "action": "block", 
-                                                     "blockId": "6294626efab76c716dbf5061?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
+    else:
+        pass
     
-    tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
     tmp_quickReplies_set['quickReplies'].append({"label": "메인메뉴", "action": "block",
@@ -169,7 +168,7 @@ def show_house_type():
     return jsonify(res)
 
 
-@blue_house_welfare_detail_1.route("/special_supply", methods=['POST'])
+@blue_house_welfare_detail_1.route("/special_supply", methods=['GET', 'POST'])
 def show_special_supply():
     body = request.get_json()
     
@@ -216,15 +215,12 @@ def show_special_supply():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     if welfare_type == '공공임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "주택유형", "action": "block", 
-                                                     "blockId": "62946260fab76c716dbf5049?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자 선정순위", "action": "block", 
-                                                     "blockId": "6294624661ca766b95bc3b50?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "분양전환", "action": "block", 
-                                                     "blockId": "6294626efab76c716dbf5061?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-    
-    tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
+    else:
+        pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
@@ -235,7 +231,7 @@ def show_special_supply():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_1.route("/sales_conversion", methods=['POST'])
+@blue_house_welfare_detail_1.route("/sales_conversion", methods=['GET', 'POST'])
 def show_sales_conversion():
     body = request.get_json()
     
@@ -269,15 +265,13 @@ def show_sales_conversion():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     if welfare_type == '공공임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "주택유형", "action": "block", 
-                                                     "blockId": "62946260fab76c716dbf5049?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자 선정순위", "action": "block", 
-                                                     "blockId": "6294624661ca766b95bc3b50?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "특별공급", "action": "block", 
-                                                     "blockId": "6294626861ca766b95bc3b5c?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
     
-    tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+    else:
+        pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block",
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})

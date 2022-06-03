@@ -2,16 +2,16 @@ from flask import Blueprint
 from flask import Flask, request, jsonify
 import pandas as pd
 import json
+from . import reply
+from . import dict_code
+from . import url_list
 
 # ------------------------------------------------------------------------------------------------------
-service_code = {'통합공공임대주택' : 'RH112', '영구임대주택' : 'RH103', '국민임대주택' : 'RH104',
-                '장기전세주택' : 'RH105', '공공임대주택' : 'RH106', '전세임대주택' : 'RH107',
-                '행복주택' : 'RH108', '공공지원민간임대주택' : 'RH109', '주거복지동주택' : 'RH110',
-                '공공기숙사' : 'RH111'}
+service_code = dict_code.service_code
+reply = reply.reply
 
-URL = "https://www.myhome.go.kr/hws/portal/cont/selectContRentalView.do#guide="
+URL = url_list.URL
 # ------------------------------------------------------------------------------------------------------
-
 
 blue_house_welfare_detail_3 = Blueprint("house_welfare_detail_3", __name__, url_prefix='/house_welfare_detail_3')
 
@@ -19,7 +19,7 @@ blue_house_welfare_detail_3 = Blueprint("house_welfare_detail_3", __name__, url_
 def house_welfare__detail_3_home():
     return "house_welfare_detail_3"
 
-@blue_house_welfare_detail_3.route("/intro", methods=['POST'])
+@blue_house_welfare_detail_3.route("/intro", methods=['GET', 'POST'])
 def show_intro():
     body = request.get_json()
     
@@ -94,18 +94,22 @@ def show_intro():
     
     
     if welfare_type == '행복주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "최대 거주기간", "action": "block", 
-                                                     "blockId": "629462bafab76c716dbf5094?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '공공지원민간임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
     elif welfare_type == '주거복지동주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주 자격·선정순위", "action": "block", 
-                                                     "blockId": "6294624661ca766b95bc3b50?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
+    else:
+        pass
         
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})
@@ -116,7 +120,7 @@ def show_intro():
     
     return jsonify(res)
 
-@blue_house_welfare_detail_3.route("/max_term", methods=['POST'])
+@blue_house_welfare_detail_3.route("/max_term", methods=['GET', 'POST'])
 def show_max_term():
     body = request.get_json()
     
@@ -156,11 +160,11 @@ def show_max_term():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     if welfare_type == '행복주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
+
     else:
         pass
 
@@ -173,7 +177,7 @@ def show_max_term():
         
     return jsonify(res)
 
-@blue_house_welfare_detail_3.route("/detail_info", methods=['POST'])
+@blue_house_welfare_detail_3.route("/detail_info", methods=['GET', 'POST'])
 def show_detail_info():
     body = request.get_json()
     
@@ -246,12 +250,12 @@ def show_detail_info():
                                         "webLinkUrl": URL + service_code[welfare_type]}]}})
     
     if welfare_type == '공공지원민간임대주택':
-        tmp_quickReplies_set['quickReplies'].append({"label": "소개", "action": "block", 
-                                                     "blockId": "629462b0890e4a16d6ad45ff?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "입주자격", "action": "block", 
-                                                     "blockId": "62946227fab76c716dbf5044?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
-        tmp_quickReplies_set['quickReplies'].append({"label": "신청절차", "action": "block", 
-                                                     "blockId": "6294623e890e4a16d6ad45f2?scenarioId=629461f9890e4a16d6ad45e9", "extra": {"welfare_type" : welfare_type}})
+        for i in range(len(reply[welfare_type])):
+            tmp_list = list(reply[welfare_type][i].items())
+            tmp_quickReplies_set['quickReplies'].append({"label": tmp_list[0][0], "action": "block", 
+                                                     "blockId": tmp_list[0][1], "extra": {"welfare_type" : welfare_type}})
+    else:
+        pass
     
     tmp_quickReplies_set['quickReplies'].append({"label": "주택복지", "action": "block", 
                                                      "blockId": "62946175fab76c716dbf502e?scenarioId=629460c7890e4a16d6ad4591"})

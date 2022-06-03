@@ -1,13 +1,13 @@
 from flask import Blueprint
 from flask import Flask, request, jsonify
 import pandas as pd
-# ------------------------------------------------------------------------------------------------------
-service_code = {'통합공공임대주택' : 'RH112', '영구임대주택' : 'RH103', '국민임대주택' : 'RH104',
-                '장기전세주택' : 'RH105', '공공임대주택' : 'RH106', '전세임대주택' : 'RH107',
-                '행복주택' : 'RH108', '공공지원민간임대주택' : 'RH109', '주거복지동주택' : 'RH110',
-                '공공기숙사' : 'RH111'}
+from . import dict_code
+from . import url_list
 
-URL = "https://www.myhome.go.kr/hws/portal/cont/selectContRentalView.do#guide="
+# ------------------------------------------------------------------------------------------------------
+service_code = dict_code.service_code
+
+URL = url_list.URL
 # ------------------------------------------------------------------------------------------------------
 # ----- house_welfare blueprint set ----------------------------------------------------------------------------
 blue_house_welfare = Blueprint("house_welfare", __name__, url_prefix='/house_welfare')
@@ -23,8 +23,6 @@ def house_welfare_home():
 @blue_house_welfare.route("/info_des", methods=['POST'])
 def house_welfare_info_des():
     body = request.get_json()
-    
-    
     
     welfare_info_house = pd.read_csv("./app/crawl/service_guide_data/welfare_info/housing_welfare_service.csv")
     
@@ -72,11 +70,9 @@ def house_welfare_info_des():
 # --------------------------------------------------------------------------------------------------------------
 
 # ----- house_welfare/info -------------------------------------------------------------------------------------
-@blue_house_welfare.route("/info", methods=['POST'])
+@blue_house_welfare.route("/info", methods=['GET', 'POST'])
 def housing_welfare():
-    body = request.get_json()
-    print(body)
-    print(body['userRequest']['utterance'])
+    req = request.get_json()
     
     welfare_info_house = pd.read_csv("./app/crawl/service_guide_data/welfare_info/housing_welfare_service.csv")
     
@@ -127,7 +123,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
+                  "blockId" : "6285ee6d33d26f492e9e91a9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
@@ -166,7 +162,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
+                  "blockId" : "6285ee6d33d26f492e9e91a9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
