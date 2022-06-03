@@ -1,21 +1,64 @@
-# 채널
-***
-[임대주택 알리미](http://pf.kakao.com/_xgiMxcb)
+# 공공 주택 정보 알림 챗봇 - “홈마트”
 
+---
 
-
-
-# 개발 환경 / 라이브러리
-***
-
-- Python 3.9.7
-  + pandas 1.3.4
-  + Flask 1.1.2   
-  + Selenium 4.1.5
-- Heroku/Github   
+- **카카오 챗봇 링크** : [http://pf.kakao.com/_xgiMxcb](http://pf.kakao.com/_xgiMxcb)
+- **사용 툴**
+    - `Flask`
+    - `Kakao i open builder`
+    - `HEROKU`
+    - `GitHub`
+    - `VScode`
+    - `Python`
 
 참고 : [Heroku 연동 방법](https://rain-grouse-1fe.notion.site/Heroku-17b646987a91459d9736347d73c4c945)   
 
+
+
+# 프로젝트 목적
+
+---
+
+- 공공 임대 주택의 정보를 간편하게 알 수 있게 한다.
+- 공공 임대 주택의 진행 중인 공고 사항들을 알 수 있게 한다.
+- 필요시 링크를 통해 페이지에 접속이 가능해야 한다.
+
+# 팀원 및 역할 분담
+
+---
+
+- 팀원 : 한정인, 정진우, 황채은, 김지민
+- 한정인 - 팀장
+    - 자료 수집
+    - 시나리오 구성
+    - 스킬서버구축
+- 정진우
+    - 자료 수집
+    - 웹크롤링
+    - 스킬서버구축
+    - 완료보고서 작성
+- 황채은
+    - 자료 수집
+    - 웹크롤링
+    - 데이터 전처리
+- 김지민
+    - 자료 수집
+    - 데이터 전처리
+    - 계획/완료 보고서 작성
+
+# 프로젝트 수행 과정
+
+---
+
+- 전체 수행 기간 : 2022.05.20 ~ 2022.06.03
+
+<img src = "./img/process.png">
+
+# 기능 흐름도
+
+---
+
+<img src = "./img/flow-diagram.png">
 
 
 
@@ -35,57 +78,7 @@
 
 
 - 공공주택 목록 보기   
-<img height = "400" src = "./img/scenario4.JPG">   
-
-
-
-
-# 기능
-***
-
-
-## 제네릭 메뉴
-
-- 메인 / 주택복지 목록 보기 / 공공주택 목록 보기 3가지로 구성   
-<img height = "400" src = "./img/generic_menu.jpg">
-
-
-## 메인
-
-- 주택복지/공공주택 목록 보기(basicCard 사용, button으로 이동)   
-<img height = "400" src = "./img/main_menu.jpg">
-
-
-## 주택복지 목록 보기
-
-- carousel/itemCard 사용
-- 설명 보기 버튼을 누르면 좀 더 자세한 설명 출력
-- 링크 연결을 누르면 해당 카드의 자세한 설명이 있는 url로 연결   
-<img height = "400" src = "./img/house_welfare_list.jpg">
-
-
-### 주택복지 목록 보기 - 설명 보기
-
-- simpleText 사용
-- quickReplies로 상세정보를 확인할 수 있음   
-<img height = "400" src = "./img/hw_info.jpg">   
-
-- 상세정보에 들어가면 소개, 입주자격, 입주절차 등 여러개의 quickReplies로 구성이 됨   
-- 버튼을 누르면 관련된 simpleText가 나오고 좀 더 자세한 설명은 url로 확인할 수 있음   
-<img height = "400" src = "./img/hw_info1.jpg">   
-
-<img height = "400" src = "./img/hw_info2.jpg">
-
-
-## 공공주택 목록 보기
-
-- 17개의 지역으로 나눠져 있고, 첫 페이지에는 광역시도, 다음 페이지는 나머지 지역을 볼 수 있다
-- quickReplies로 해당되는 지역의 공고를 확인할 수 있음   
-<img height = "400" src = "./img/region_list.jpg">   
-
-
-- 버튼을 누르면 Carousel/basicCard 형태가 표시되고 자세히 보기 버튼을 누르면 해당되는 url로 이동 가능   
-<img height = "400" src = "./img/notice_list.jpg">
+<img height = "400" src = "./img/scenario4.JPG">
 
 
 
@@ -109,6 +102,30 @@ house_welfare_detail_n : 주택복지 상세 블록 출력
 region_list : 공공주택 목록 블록 출력   
 crawl 폴더 : 크롤링 코드 / 데이터
 deploy.sh : 배포 배치 파일
-```
-./deploy.sh
-```
+
+
+
+# 한계점 및 시행착오
+
+---
+
+- **한계점**
+    - 마이홈에서 실시간 정보를 가져오지 못함
+    - 알림 서비스 미구현
+    - 관련 뉴스 출력 기능 미구현
+- **시행착오**
+    - Github와 HEROKU **연결 에러로 배포 안됨**
+        - 연결할 때 **연동과 배포의 순서의 문제로 발생**, 순서를 **재설정하여 해결**
+    - 새로운 정보로 인해 **웹크롤링 순서에 오류 발생**
+        - 각 지역 **상위 10곳만 크롤링**하여 문제 해결
+    - 카카오톡 응답 메시지의 형식에 정보를 그대로 넣어 출력하면, 프로그램의 관리가 어려워짐
+        - 응답 메시지의 기본 포멧을 정의하고, 포멧 내부의 리스트에 삽입하는 방법을 적용하여 해결
+    - 프로그램 소스코드가 길어져 **유지보수가 어려워짐**
+        - 기능별 모듈화를 시도하며 코드 간소화 작업를 진행하여 해결
+
+# 향후 계획
+
+---
+
+- 미구현된 기능들을 구현
+- 지속적인 코드 관리로 효율적인 진행이 가능하도록 한다.
