@@ -7,11 +7,9 @@ blue_main_menu = Blueprint("main_menu", __name__, url_prefix="/main_menu")
 def main_menu_check():
     return "main_menu"
 
-@blue_main_menu.route("/main", methods=['POST'])
+@blue_main_menu.route("/main", methods=['GET', 'POST'])
 def main_menu_1():
     body = request.get_json()
-    print(body)
-    print(body['userRequest']['utterance'])
     
     res = {
   "version": "2.0",
