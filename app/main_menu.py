@@ -37,7 +37,7 @@ def main_menu_1():
             {
               "label": "공공주택 공고 보기",
               "action": "block",
-              "blockId": "6281c35604a7d7314aebddd4?scenarioId=6281c2009ac8ed784416bc1a"
+              "blockId": "6299b98eab89e678ee86d591?scenarioId=6299b966ab89e678ee86d58a"
             }
             
           ]
