@@ -108,6 +108,7 @@ def show_lease_list():
     region_url = pd.read_csv("./app/crawl/region_data/"+ region_eng[region_type] + "_url.csv")
     
     r_des = []
+    r_url = []
     
     rand_thumb = random.sample(thumbnail_arr, 10)
     
@@ -115,6 +116,9 @@ def show_lease_list():
         r_des.append(region_notice.iloc[i]['name'] 
                      + '\n공급유형 : ' + region_notice.iloc[i]['title'] 
                      + '\n공고일자 : ' + region_notice.iloc[i]['re_date'])
+        
+    for i in range(len(region_url)):
+        r_url.append(region_url.iloc[i]['url'])
         
     for i in range(len(r_des)):
         res['template']['outputs'][0]['carousel']['items'].append({
@@ -126,7 +130,7 @@ def show_lease_list():
                             {
                                 "action":  "webLink",
                                 "label": "자세히 보기",
-                                "webLinkUrl": r_des[i]
+                                "webLinkUrl": r_url[i]
                             }
                         ]
                     })
