@@ -2,16 +2,20 @@
 
 ---
 
+- **기간** : 22.05.20 ~ 22.06.03
+- **인원** : 4명
 - **[보고서](./report.pdf)**
 - **시연 영상** : [https://youtu.be/Xg_AGNDcS_s](https://youtu.be/Xg_AGNDcS_s)
 - **카카오 챗봇 링크** : [http://pf.kakao.com/_xgiMxcb](http://pf.kakao.com/_xgiMxcb)
-- **사용 툴**
-    - `Flask`
+- **사용 툴 및 라이브러리**
     - `Kakao i open builder`
     - `HEROKU`
     - `GitHub`
     - `VScode`
-    - `Python`
+    - `Python 3.9.7`
+      - `Flask 1.1.2`
+      - `pandas 1.3.4`
+      - `selenium 4.1.5`
 
 참고 : [Heroku 연동 방법](https://rain-grouse-1fe.notion.site/Heroku-17b646987a91459d9736347d73c4c945)   
 
