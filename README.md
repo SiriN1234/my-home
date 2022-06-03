@@ -16,6 +16,10 @@
       - `Flask 1.1.2`
       - `pandas 1.3.4`
       - `selenium 4.1.5`
+      - `chromedriver`
+      - `chromedriver_autoinstaller 0.3.1`
+      - `request`
+      - `json, jsonify`
 
 참고 : [Heroku 연동 방법](https://rain-grouse-1fe.notion.site/Heroku-17b646987a91459d9736347d73c4c945)   
 
