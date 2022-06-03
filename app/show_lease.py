@@ -104,8 +104,8 @@ def show_lease_list():
     tmp_quickReplies_set = {"quickReplies": []}
     # ----------------------------------------------
     #-----------------------------------------------
-    region_notice = pd.read_csv("./data/region_data/"+ region_eng[region_type] + "_notice.csv")
-    region_url = pd.read_csv("./data/region_data/"+ region_eng[region_type] + "_url.csv")
+    region_notice = pd.read_csv("./app/crawl/region_data/"+ region_eng[region_type] + "_notice.csv")
+    region_url = pd.read_csv("./app/crawl/region_data/"+ region_eng[region_type] + "_url.csv")
     
     r_des = []
     
