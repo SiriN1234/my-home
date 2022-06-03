@@ -2,6 +2,7 @@
 
 ---
 
+- **[보고서](./report.pdf)**
 - **카카오 챗봇 링크** : [http://pf.kakao.com/_xgiMxcb](http://pf.kakao.com/_xgiMxcb)
 - **사용 툴**
     - `Flask`
