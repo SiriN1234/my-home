@@ -127,7 +127,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
+                  "blockId" : "6294621dfab76c716dbf5042?scenarioId=629461f9890e4a16d6ad45e9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
@@ -166,7 +166,7 @@ def housing_welfare():
                 {
                   "label": "설명 보기",
                   "action": "block",
-                  "blockId" : "62946d2df591aa1905547ba4?scenarioId=629461f9890e4a16d6ad45e9",
+                  "blockId" : "6294621dfab76c716dbf5042?scenarioId=629461f9890e4a16d6ad45e9",
                   "extra": {"welfare_type" : welfare_info_house.iloc[i]['title']}
                 },
                 {
