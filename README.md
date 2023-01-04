@@ -6,7 +6,6 @@
 - **인원** : 4명
 - **[보고서](./report.pdf)**
 - **시연 영상** : [https://youtu.be/Xg_AGNDcS_s](https://youtu.be/Xg_AGNDcS_s)
-- **카카오 챗봇 링크** : [http://pf.kakao.com/_xgiMxcb](http://pf.kakao.com/_xgiMxcb)
 - **사용 툴 및 라이브러리**
     - `Kakao i open builder`
     - `HEROKU`
